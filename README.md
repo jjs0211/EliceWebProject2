@@ -10,6 +10,8 @@
 |선혜주|백엔드||
 |장준수|백엔드|팀장|
 
+<br>
+
 ### 협업 규칙
 #### **팀 회의**
 
@@ -29,6 +31,8 @@
 - 밝은 분위기 속에서 도움 받고, 도움 주기
 - 내 의견을 말하지 않으면 팀에게 손해라고 생각하기
 
+<br>
+
 ### 개발 규칙
 
 - 변수는 **camelCase**로 통일하기
@@ -36,7 +40,9 @@
 - JS 스크립트 작성 규칙
     - 화살표 함수
     - Axios, aysnc/await 로 통일
-    
+
+<br>
+
 ### 커밋 규칙
 
 - [FEAT] : 새로운 기능에 대한 커밋
@@ -46,3 +52,16 @@
 - [DOCS] : 문서 변경
 - [COMMENT] : 주석 추가 및 변경
 - [DIR] : 파일 및 폴더명 수정 및 이동, 삭제 작업
+
+<br>
+<br>
+
+### 참고
+#### 전체 개발 프로세스
+[1주차 진행 예시](https://www.notion.so/elice/1-913e840cf1164f6da40874f2f2d8447f)
+[2주차 진행 예시](https://www.notion.so/elice/2-a60237f4cc6d42bca196efb981f14e88)
+[3주차 진행 예시](https://www.notion.so/elice/3-c3d43a0d552f452eb3f31f34dcb56d45)
+<br>
+#### 알면 좋은 개발 Tip
+[Swagger로 APi 문서 자동으로 만들기](https://www.notion.so/elice/Swagger-API-265bfca574b3438087cc9388e645a133)
+[유용한 라이브러리/사이트](https://www.notion.so/elice/f29b68812f774b119dcaa712aaaac0fd)
