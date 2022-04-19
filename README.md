@@ -58,10 +58,10 @@
 
 ### 참고
 #### 전체 개발 프로세스
-[1주차 진행 예시](https://www.notion.so/elice/1-913e840cf1164f6da40874f2f2d8447f)
-[2주차 진행 예시](https://www.notion.so/elice/2-a60237f4cc6d42bca196efb981f14e88)
-[3주차 진행 예시](https://www.notion.so/elice/3-c3d43a0d552f452eb3f31f34dcb56d45)
+[1주차 진행 예시](https://www.notion.so/elice/1-913e840cf1164f6da40874f2f2d8447f)<br>
+[2주차 진행 예시](https://www.notion.so/elice/2-a60237f4cc6d42bca196efb981f14e88)<br>
+[3주차 진행 예시](https://www.notion.so/elice/3-c3d43a0d552f452eb3f31f34dcb56d45)<br>
 <br>
 #### 알면 좋은 개발 Tip
-[Swagger로 APi 문서 자동으로 만들기](https://www.notion.so/elice/Swagger-API-265bfca574b3438087cc9388e645a133)
+[Swagger로 APi 문서 자동으로 만들기](https://www.notion.so/elice/Swagger-API-265bfca574b3438087cc9388e645a133)<br>
 [유용한 라이브러리/사이트](https://www.notion.so/elice/f29b68812f774b119dcaa712aaaac0fd)
