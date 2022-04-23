@@ -3,6 +3,74 @@ import { Router } from "express";
 import { loginRequired } from "../middlewares/loginRequired";
 import { userAuthService } from "../services/userService";
 
+/**
+ * @swagger
+ *   components:
+ *     schemas:
+ *       User:
+ *         type: object
+ *         required:
+ *           - email
+ *           - password
+ *         properties:
+ *           id:
+ *             type: int
+ *             description: 자동 생성되는 숫자
+ *           name:
+ *             type: string
+ *             description: 닉네임
+ *           email:
+ *             type: string
+ *             description: 이메일
+ *           password:
+ *             type: string
+ *             description: 비밀번호
+ *           createdAt:
+ *             type: date
+ *             description: 생성 날짜
+ */
+/**
+ *  @swagger
+ *  tags:
+ *    name: User
+ *    description: 회원 관리
+ */
+/**
+ *  @swagger
+ *  paths:
+ *   /user/register:
+ *     post:
+ *       summary: 회원가입
+ *       tags: [User]
+ *       produces:
+ *       - "application/json"
+ *       parameters:
+ *       - in: header
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                   description: 닉네임
+ *                 email:
+ *                   type: string
+ *                   description: 이메일
+ *                 password:
+ *                   type: string
+ *                   description: 비밀번호
+ *       responses:
+ *         "200":
+ *           description: Register user.
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: '#/components/schemas/User'
+ */
+
 const userAuthRouter = Router();
 
 userAuthRouter.post("/user/register", async function (req, res, next) {
@@ -17,7 +85,7 @@ userAuthRouter.post("/user/register", async function (req, res, next) {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-
+    console.log(name, email, password);
     // 위 데이터를 유저 db에 추가하기
     const newUser = await userAuthService.addUser({
       name,

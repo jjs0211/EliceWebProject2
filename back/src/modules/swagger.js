@@ -1,5 +1,6 @@
 import swaggerUi from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
+import path from "path";
 
 const options = {
   swaggerDefinition: {
@@ -14,10 +15,14 @@ const options = {
         url: "http://localhost:" + process.env.SERVER_PORT,
       },
     ],
+    paths: {},
+    components: {},
+    tags: ["User"],
   },
-  apis: ["./routers/*.js", "./swagger/*"],
+  apis: [__dirname + "/../routers/*.js"],
 };
 
+console.log(path.resolve(__dirname + "/../routers/*.js"));
 const specs = swaggerJsDoc(options);
 
 export { swaggerUi, specs };
