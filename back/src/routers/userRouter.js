@@ -132,3 +132,5 @@ userAuthRouter.get(
     }
   }
 );
+
+export { userAuthRouter };
