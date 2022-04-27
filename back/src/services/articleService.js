@@ -21,7 +21,7 @@ class ArticleService {
 
     static async getArticle({ articleId }) {
         // 해당 id를 가진 데이터가 db에 존재 여부 확인
-        const article = await Article.findById({ _id : articleId });
+        const article = await Article.findById({ articleId });
         if (!article){
             const errorMessage = "해당 id를 가진 게시글은 없습니다. 다시 한 번 확인해주세요.";
             return { errorMessage }
