@@ -10,7 +10,7 @@ import { userAuthService } from "../services/userService";
  *       User:
  *         type: object
  *         required:
- *           - email
+ *           - loginId
  *           - password
  *         properties:
  *           id:
@@ -19,7 +19,7 @@ import { userAuthService } from "../services/userService";
  *           name:
  *             type: string
  *             description: 닉네임
- *           email:
+ *           loginId:
  *             type: string
  *             description: 이메일
  *           password:
@@ -56,7 +56,7 @@ import { userAuthService } from "../services/userService";
  *                 name:
  *                   type: string
  *                   description: 닉네임
- *                 email:
+ *                 loginId:
  *                   type: string
  *                   description: 이메일
  *                 password:
@@ -83,14 +83,20 @@ userAuthRouter.post("/user/register", async function (req, res, next) {
 
     // req (request) 에서 데이터 가져오기
     const name = req.body.name;
-    const email = req.body.email;
+    const loginId = req.body.loginId;
     const password = req.body.password;
-    console.log(name, email, password);
+    const birthday = req.body.birthday;
+    const sex = req.body.sex;
+    const phoneNum = req.body.phoneNumber;
+    console.log(name, loginId, password);
     // 위 데이터를 유저 db에 추가하기
     const newUser = await userAuthService.addUser({
       name,
-      email,
+      loginId,
       password,
+      birthday,
+      sex,
+      phoneNum,
     });
 
     if (newUser.errorMessage) {
@@ -106,11 +112,11 @@ userAuthRouter.post("/user/register", async function (req, res, next) {
 userAuthRouter.post("/user/login", async function (req, res, next) {
   try {
     // req (request) 에서 데이터 가져오기
-    const email = req.body.email;
+    const loginId = req.body.loginId;
     const password = req.body.password;
 
     // 위 데이터를 이용하여 유저 db에서 유저 찾기
-    const user = await userAuthService.getUser({ email, password });
+    const user = await userAuthService.getUser({ loginId, password });
 
     if (user.errorMessage) {
       throw new Error(user.errorMessage);
@@ -163,10 +169,10 @@ userAuthRouter.put(
       const userId = req.params.id;
       // body data 로부터 업데이트할 사용자 정보를 추출함.
       const name = req.body.name ?? null;
-      const email = req.body.email ?? null;
+      const loginId = req.body.loginId ?? null;
       const password = req.body.password ?? null;
 
-      const toUpdate = { name, email, password, description };
+      const toUpdate = { name, loginId, password, description };
 
       // 해당 사용자 아이디로 사용자 정보를 db에서 찾아 업데이트함. 업데이트 요소가 없을 시 생략함
       const updatedUser = await userAuthService.setUser({ userId, toUpdate });

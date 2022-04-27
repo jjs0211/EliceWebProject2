@@ -22,7 +22,6 @@ const options = {
   apis: [__dirname + "/../routers/*.js"],
 };
 
-console.log(path.resolve(__dirname + "/../routers/*.js"));
 const specs = swaggerJsDoc(options);
 
 export { swaggerUi, specs };

@@ -6,7 +6,7 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    email: {
+    loginId: {
       type: String,
       required: true,
     },
@@ -18,10 +18,18 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    image: {
+    birthday: {
       type: String,
       required: false,
       default: "",
+    },
+    sex: {
+      type: String,
+      required: false,
+    },
+    phoneNumber: {
+      type: String,
+      required: false,
     },
   },
   { timestamps: true }
