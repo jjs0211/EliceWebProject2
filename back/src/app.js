@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import { swaggerUi, specs } from "./modules/swagger";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
+import { articleRouter } from "./routers/articleRouter";
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.get("/", (req, res) => {
 
 
 
-
+app.use(articleRouter);
 // 순서 중요 (router 에서 next() 시 아래의 에러 핸들링  middleware로 전달됨)
 app.use(errorMiddleware);
 
