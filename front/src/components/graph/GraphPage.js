@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import { StyledEngineProvider } from '@mui/material/styles';
-import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 
-import NavTabss from './graph/NavTabs';
-// import ResponsiveDrawer from './graph/ResposiveDrawer';
-import BCNP from './graph/chart/BCNP';
-import SAPC from './graph/chart/SAPC';
-import TSPC from './graph/chart/TSPC';
-import SRBC from './graph/chart/SRBC';
+import NavTabss from './NavTabs'
+import BCNP from './chart/BCNP';
+import SAPC from './chart/SAPC';
+import TSPC from './chart/TSPC';
+import SRBC from './chart/SRBC';
 
 function Header(props) {
   return <header>
@@ -49,14 +44,7 @@ function Article(props) {
         <h2>{props.title }</h2>
         {props.body}
       
-        <br />
-        <br />
-      
-        {/* <ButtonGroup>
-          <Button variant='contained'>create</Button>
-          <Button variant='contained'>Update</Button>
-        </ButtonGroup>
-        <Button variant='contained'>delete</Button> */}
+
       </article>
       {props.chart}
       
@@ -118,10 +106,7 @@ function GraphPage() {
         <Divider  orientation="vertical" flexItem />
         <Grid item>{content}</Grid>
       </Grid>
-      {/* //! 반응형 MUI 테마 부분 */}
-      {/* <Grid container>
-          <ResponsiveDrawer></ResponsiveDrawer>
-      </Grid> */}
+
           <BCNP></BCNP>
           <SRBC></SRBC>
           <SAPC></SAPC>
