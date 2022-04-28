@@ -2,10 +2,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import GraphPage from './components/GraphPage';
+import GraphPage from './components/graph/GraphPage';
 import Main from './components/main/Main'
 import Login from './components/login/Login'
 import Register from "./components/register/Register";
+import Blog from './components/blog/Blog';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/main" exact element={<Main />} />
-          {/* <Route path="/blog" element={<Blog />} /> */}
+          <Route path="/blog" element={<Blog />} />
           <Route path="/graph" element={<GraphPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
