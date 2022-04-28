@@ -10,10 +10,6 @@ const options = {
       version: "1.0.0",
       description: "Elice 데이터분석 팀프로젝트: 팀18 우아한 남매들",
     },
-<<<<<<< HEAD
-    apis: [__dirname + "/../routers/*.js"],
-  };
-=======
     servers: [
       {
         url: "http://localhost:" + process.env.SERVER_PORT,
@@ -25,7 +21,6 @@ const options = {
   },
   apis: [__dirname + "/../routers/*.js"],
 };
->>>>>>> user-mvp-back
 
 const specs = swaggerJsDoc(options);
 
