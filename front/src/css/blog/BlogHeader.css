@@ -59,6 +59,18 @@ color: white;
   font-weight:bold
 }
 
+.naviContent button {
+  text-decoration: none;
+  color: white;
+  border: none;
+  background: none;
+  
+}
+
+.naviContent button:hover {
+  cursor: pointer;
+}
+
 .naviContent a {
 
   margin-right: 25px;

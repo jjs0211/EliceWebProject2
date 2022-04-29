@@ -3,16 +3,23 @@ import { useNavigate, useParams } from "react-router-dom";
 import '../../css/main/Main.css'
 import MainHeader from './MainHeader'
 import MainMiddle from './MainMiddle'
-import MainBottom from './MainBottom'
+import MainTail from './MainTail'
 
 function Main() {  
   return(
-    <div className="container">
+  <div className="mainWrapper">
+    <div className="mainHeaderContainer">
       <MainHeader />
+    </div> 
+
+    <div className="mainMiddleContainer">  
       <MainMiddle />
-      <MainBottom />
     </div>
-  
+      
+    <div className="mainTailContainer">
+      <MainTail />
+    </div>
+  </div>
   ) 
 }
 
