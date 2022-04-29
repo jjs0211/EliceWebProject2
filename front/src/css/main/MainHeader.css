@@ -1,10 +1,10 @@
 .MainHeader {
   
-  width: 1000px;
+  width: 700px;
   height: 500px;
-  background-color: beige;
+  background-color: white;
   margin: auto;
-  padding-left: 150px;
+
 }
 
 .HeaderTitle {
@@ -12,7 +12,7 @@
   margin-bottom: 20px;
   font-size: 32px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:orange;
+  color:#ff9500;
   
 }
 
@@ -36,6 +36,7 @@
   width: 100%;
   height: 200px;
   margin-bottom: 60px;
+  
 
 }
 
@@ -44,13 +45,16 @@
   width: 200px;
   height: 200px;
   margin-right: 30px;
+  border-style: hidden;
   border-radius: 3mm;
+  
 }
 
 .image2 {
   width: 200px;
   height: 200px;
   margin-right: 30px;
+  border-style: hidden;
   border-radius: 3mm;
 
 }
@@ -59,17 +63,23 @@
   width: 200px;
   height: 200px;
   margin-right: 30px;
+  border-style: hidden;
   border-radius: 3mm;
 }
 
 .linkButton {
-  background-color: rgb(241, 197, 115);
-  color: white;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: bold;
-  border-color: rgb(239, 197, 115);
-  border-radius: 1mm;
-  width: 200px;
-  height: 50px;
   
+  width: 200px;
+  height: 48px;
+  border: hidden;
+  border-radius: 12px;
+  background-color: #ff9500;  
+  
+  font-size: 14px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+
 }

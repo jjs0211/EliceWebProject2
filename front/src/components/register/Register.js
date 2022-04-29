@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
 import { useNavigate, useParams } from "react-router-dom";
-
+import * as Api from '../../api'
 import '../../css/register/Register.css'
 
 
 function Register() {
   
-  const [id, setId] = useState('###')
+  const navigate = useNavigate()
+  const [loginId, setLoginId] = useState('###')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [name, setName] = useState('')
@@ -23,7 +24,34 @@ function Register() {
       setBirthday(birthdayInfo)
     }, [year, month, day]
   )
+
   
+// ---------------------------------------- //
+// --- Backend에 회원가입 정보 전달 함수 -------------------//
+
+async function handleSubmit() {
+  
+
+  try {
+    // "user/register" 엔드포인트로 post요청함.
+    await Api.post("user/register", {
+      name,
+      loginId,
+      password,
+      birthday,
+      sex,
+      phoneNumber
+    }); 
+
+    // 로그인 페이지로 이동함.
+    navigate("/login");
+  } catch (err) {
+    console.log("회원가입에 실패하였습니다.", err);
+  }
+};
+
+
+
 //---- ----------------- ---------//
 // -- 칸이 공란일 경우 체크 ---
 
@@ -36,12 +64,12 @@ function Register() {
 // ---------------------------  //
 // -- ID 체크 --------
 
-  function idCheck(id) {
+  function idCheck(loginId) {
     const idRegex = /^[-_a-z0-9]{6,20}$/g;
-    return id.match(idRegex) } 
+    return loginId.match(idRegex) } 
   
-  const idBlankValid = blankCheck(id)
-  const isIdValid = idCheck(id)
+  const idBlankValid = blankCheck(loginId)
+  const isIdValid = idCheck(loginId)
   
 
 // -------------------------------------------------------//
@@ -143,7 +171,7 @@ function Register() {
       
       <div className="idContainer">
         <div className="idTitle">아이디</div>
-        <input className='idBox' type='text' onBlur={(e) => setId(e.target.value)} />
+        <input className='idBox' type='text' onBlur={(e) => setLoginId(e.target.value)} />
         <div className='checker'>{idBlankValid ? '필수 정보입니다.' : isIdValid ? '멋진 아이디네요!' : '6~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용해주세요.'}</div>
       </div>
 
@@ -202,7 +230,9 @@ function Register() {
         <div className='phoneNumberChecker'>{!isPhoneNumberValid && '휴대폰 번호를 다시 확인해주세요' }</div>
       </div>
 
-      <button className="registerButton" disabled={!(isIdValid&&isPasswordValid&&isconfirmPasswordValid&&isNameValid&&isBirthdayValid&&isSexValid&&isPhoneNumberValid)}>가입하기</button>
+      <button className="registerButton" 
+        onClick={handleSubmit}
+      disabled={!(isIdValid&&isPasswordValid&&isconfirmPasswordValid&&isNameValid&&isBirthdayValid&&isSexValid&&isPhoneNumberValid)}>가입하기</button>
     </div>
 
 

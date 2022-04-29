@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate, useParams } from "react-router-dom";
 import '../../css/blog/Blog.css'
 
 import BlogHeader from './BlogHeader';

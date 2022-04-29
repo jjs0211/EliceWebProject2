@@ -26,10 +26,12 @@ const UserSchema = new Schema(
     sex: {
       type: String,
       required: false,
+      default: "",
     },
     phoneNumber: {
       type: String,
       required: false,
+      default: "",
     },
   },
   { timestamps: true }
