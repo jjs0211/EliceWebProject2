@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import * as Api from '../../api'
 import '../../css/register/Register.css'
 
 
 function Register() {
   
+  const navigate = useNavigate()
   const [loginId, setLoginId] = useState('###')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -29,6 +30,7 @@ function Register() {
 // --- Backend에 회원가입 정보 전달 함수 -------------------//
 
 async function handleSubmit() {
+  
 
   try {
     // "user/register" 엔드포인트로 post요청함.
@@ -42,7 +44,7 @@ async function handleSubmit() {
     }); 
 
     // 로그인 페이지로 이동함.
-    Navigate("/login");
+    navigate("/login");
   } catch (err) {
     console.log("회원가입에 실패하였습니다.", err);
   }
