@@ -3,32 +3,7 @@ import { Router } from "express";
 import { loginRequired } from "../middlewares/loginRequired";
 import { userAuthService } from "../services/userService";
 
-/**
- * @swagger
- *   components:
- *     schemas:
- *       User:
- *         type: object
- *         required:
- *           - loginId
- *           - password
- *         properties:
- *           id:
- *             type: int
- *             description: 자동 생성되는 숫자
- *           name:
- *             type: string
- *             description: 닉네임
- *           loginId:
- *             type: string
- *             description: 이메일
- *           password:
- *             type: string
- *             description: 비밀번호
- *           createdAt:
- *             type: date
- *             description: 생성 날짜
- */
+const userAuthRouter = Router();
 /**
  *  @swagger
  *  tags:
@@ -43,9 +18,30 @@ import { userAuthService } from "../services/userService";
  *       summary: 회원가입
  *       tags: [User]
  *       produces:
- *       - "application/json"
+ *         - "application/json"
  *       parameters:
- *       - in: header
+ *         - in: body
+ *           name: user
+ *           description: 유저 정보
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *                 loginId
+ *                 password
+ *             properties:
+ *               name:
+ *                 type: string
+ *               loginId:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               birthday:
+ *                 type: string
+ *               sex:
+ *                 type: string
+ *               phoneNumber:
+ *                 type: string
  *       requestBody:
  *         required: true
  *         content:
@@ -65,14 +61,7 @@ import { userAuthService } from "../services/userService";
  *       responses:
  *         "200":
  *           description: Register user.
- *           content:
- *             application/json:
- *               schema:
- *                 $ref: '#/components/schemas/User'
  */
-
-const userAuthRouter = Router();
-
 userAuthRouter.post("/user/register", async function (req, res, next) {
   try {
     if (is.emptyObject(req.body)) {
@@ -88,7 +77,7 @@ userAuthRouter.post("/user/register", async function (req, res, next) {
     const birthday = req.body.birthday;
     const sex = req.body.sex;
     const phoneNum = req.body.phoneNumber;
-    console.log(name, loginId, password);
+    console.log(name, loginId, password, birthday, sex, phoneNum);
     // 위 데이터를 유저 db에 추가하기
     const newUser = await userAuthService.addUser({
       name,
@@ -109,6 +98,46 @@ userAuthRouter.post("/user/register", async function (req, res, next) {
   }
 });
 
+/**
+ *  @swagger
+ *  paths:
+ *   /user/login:
+ *     post:
+ *       summary: 로그인
+ *       tags: [User]
+ *       produces:
+ *         - "application/json"
+ *       parameters:
+ *         - in: body
+ *           name: login
+ *           description: 로그인 정보
+ *           schema:
+ *             type: object
+ *             required:
+ *               - loginId
+ *                 password
+ *             properties:
+ *               loginId:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *       requestBody:
+ *         required: true
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 loginId:
+ *                   type: string
+ *                   description: 이메일
+ *                 password:
+ *                   type: string
+ *                   description: 비밀번호
+ *       responses:
+ *         "200":
+ *           description: Login user.
+ */
 userAuthRouter.post("/user/login", async function (req, res, next) {
   try {
     // req (request) 에서 데이터 가져오기
@@ -128,6 +157,24 @@ userAuthRouter.post("/user/login", async function (req, res, next) {
   }
 });
 
+/**
+ *  @swagger
+ *  paths:
+ *   /userlist:
+ *     get:
+ *       summary: 전체 유저 목록
+ *       tags: [User]
+ *       parameters:
+ *         - in: header
+ *           name: token
+ *           required: true
+ *           description: 헤더에 토큰을 입력하세요.
+ *           schema:
+ *             type: string
+ *       responses:
+ *         "200":
+ *           description: User List.
+ */
 userAuthRouter.get("/userlist", loginRequired, async function (req, res, next) {
   try {
     // 전체 사용자 목록을 얻음
@@ -138,6 +185,24 @@ userAuthRouter.get("/userlist", loginRequired, async function (req, res, next) {
   }
 });
 
+/**
+ *  @swagger
+ *  paths:
+ *   /user/current:
+ *     get:
+ *       summary: 현재 유저 정보
+ *       tags: [User]
+ *       parameters:
+ *         - in: header
+ *           name: token
+ *           required: true
+ *           description: 헤더에 토큰을 입력하세요.
+ *           schema:
+ *             type: string
+ *       responses:
+ *         "200":
+ *           description: 현재 유저 정보
+ */
 userAuthRouter.get(
   "/user/current",
   loginRequired,
@@ -188,12 +253,37 @@ userAuthRouter.put(
   }
 );
 
+/**
+ *  @swagger
+ *  paths:
+ *   /users/{id}:
+ *     get:
+ *       summary: 현재 유저 정보
+ *       tags: [User]
+ *       parameters:
+ *         - in: header
+ *           name: token
+ *           required: true
+ *           description: 헤더에 토큰을 입력하세요.
+ *           schema:
+ *             type: string
+ *         - in: path
+ *           name: id
+ *           required: true
+ *           description: userId
+ *           schema:
+ *             type: string
+ *       responses:
+ *         "200":
+ *           description: 현재 유저 정보
+ */
 userAuthRouter.get(
   "/users/:id",
   loginRequired,
   async function (req, res, next) {
     try {
       const userId = req.params.id;
+      console.log(userId);
       const currentUserInfo = await userAuthService.getUserInfo({ userId });
 
       if (currentUserInfo.errorMessage) {
