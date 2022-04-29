@@ -17,6 +17,10 @@ const articleSchema = new Schema(
       type: String,
       required: true,
     },
+    graphFilePath: {
+      type: String,
+      required: true,
+    },
 
     // // article의 고유 id
     // id: {
