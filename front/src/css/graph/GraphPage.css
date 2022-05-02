@@ -34,10 +34,39 @@
 .GraphPageGlass {
     display: grid;
     height: 97%;
-    width: 97%;
+    width: 95%;
     border-radius: 2rem;
     background-color: var(--glass);
     overflow: hidden;
     /* grid-template-columns: 11rem auto 20rem; 3분할*/
-    grid-template-columns: 11rem auto;
+    grid-template-columns: 13rem auto;
+}
+
+.Header {
+    /* 배경 그라디언트효과 */
+    margin: 0;
+    background: linear-gradient(106.37deg,
+        #ffe1bc 29.63%,
+        #ffcfd1 51.55%,
+        #f3c6f1 90.85%);
+    height: 20vh;
+    /*배경 높이*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 폰트 */
+    font-family: 'Inter',
+    sans-serif;
+}
+
+.HeaderGlass {
+    display: grid;
+    /* height: 55%; */
+    height: 80px;
+    width: 74%;
+    border-radius: 2rem;
+    background-color: var(--glass);
+    overflow: hidden;
+    grid-template-columns: auto 30rem;
 }
