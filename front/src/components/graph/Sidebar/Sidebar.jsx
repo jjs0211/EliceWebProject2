@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../../../css/graph/Sidebar.css'
-import Logo from '../../../images/graph/logo.png'
+// import Logo from '../../../images/graph/logo.png'
 
 import { SidebarData } from '../Data/Data'
 
@@ -12,13 +12,6 @@ const Sidebar = () => {
 
   return (
     <div className="Sidebar">
-      {/* 로고 부분 */}
-      <div className="logo">
-        <img src={Logo} alt="" />
-        <span>
-          Food<span>L</span>og
-        </span>
-      </div>
 
       {/* 사이드 바 부분 */}
       <div className='menu'>
