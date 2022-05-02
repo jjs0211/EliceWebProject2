@@ -12,7 +12,7 @@ export const SidebarData = [
   },
   {
     icon: UilChart,
-    heading: "Pie chart",
+    heading: "Donut chart",
   },
   {
     icon: UilChart,
@@ -20,7 +20,7 @@ export const SidebarData = [
   },
   {
     icon: UilChart,
-    heading: 'Radder chart'
+    heading: 'Radar chart'
   },
   {
     icon: UilChart,
