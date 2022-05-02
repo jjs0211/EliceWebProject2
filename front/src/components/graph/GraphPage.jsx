@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from './Sidebar/Sidebar'
 import '../../css/graph/GraphPage.css'
+import MainDash from './MainDash/MainDash'
 
 
 const GraphPage = () => {
@@ -8,8 +9,9 @@ const GraphPage = () => {
     <div className='GraphPage'>
       <div className="GraphPageGlass">
         <Sidebar></Sidebar>
-        <div>Graph</div>
-        
+        <MainDash></MainDash>
+
+        <div>Foot</div>        
         </div>
     </div>
   )
