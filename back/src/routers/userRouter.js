@@ -283,7 +283,7 @@ userAuthRouter.get(
   async function (req, res, next) {
     try {
       const userId = req.params.id;
-      console.log(userId);
+
       const currentUserInfo = await userAuthService.getUserInfo({ userId });
 
       if (currentUserInfo.errorMessage) {
