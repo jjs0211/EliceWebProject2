@@ -47,6 +47,8 @@ async function handleSubmit() {
     navigate("/login");
   } catch (err) {
     console.log("회원가입에 실패하였습니다.", err);
+    alert("아이디가 중복되었습니다. 새로운 아이디를 사용해주세요.")
+
   }
 };
 
