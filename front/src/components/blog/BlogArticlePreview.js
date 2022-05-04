@@ -1,17 +1,17 @@
 import React from 'react'
 import '../../css/blog/BlogArticlePreview.css'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function BlogArticlePreview(props) {
+function BlogArticlePreview({id, src, title}) {
   const navigate = useNavigate()
+ 
+  return (  
 
-  return (
-
-    <div className="PreviewContainer" onClick={() => navigate('/main')}>
+    <div className="PreviewContainer" onClick={() => navigate(`/blogArticle/${id}`)}>
       <div className="PreviewimageBox">
-        <img src={props.src} alt='사진'></img>
+        <img src={src} alt='사진'></img>
       </div>
-      <div className="titleBox">{props.title}</div>
+      <div className="titleBox">{title}</div>
     </div>
   )
 
