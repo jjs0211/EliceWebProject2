@@ -25,6 +25,8 @@ function BlogMiddleArticle() {
       <div className="blogMiddleAritcleBox">
         {articleList.map((article) => (
           <BlogArticlePreview
+            key = {article.id}
+            id = {article.id}
             nickname = {article.nickName}
             title = {article.title}
             src = {article.filePath}
