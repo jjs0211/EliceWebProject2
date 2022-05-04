@@ -24,7 +24,6 @@ function BlogPost() {
   const handleBody = (e) => {
 
     setBody(e);
-    console.log(e);
   }
 
 
@@ -74,42 +73,44 @@ function BlogPost() {
  
 
   return (
-  <div className="QuillContainer">
-    <div className="QuillHeaderContainer" >
-    <input className="QuillTitle" type="text" placeHolder="제목을 입력해주세요" onChange={handleTitle}></input>
-    <input className="QuillNickname" type='text' placeholder='닉네임' onChange={handleNickname} ></input>
-    <button className="summitTextButton" 
-      onClick={handleUpload}
-      disabled={!(imageComplete && titleComplete && nicknameComplete)}>글 입력</button>
-    </div>
-    
-    <ReactQuill
-      placeholder='write something amazing....'
-      theme="snow"
-      style={{
-        height: 480,
-        width: 560,
-        marginTop: '16px',
-        marginBottom: '8px',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
+  
+  <div className="QuillWrapper">
+    <div className="QuillContainer">
       
-      value={body}
-
-      modules={{
-        toolbar: [
-            [{ 'font': [] }],
-            [{'align': []} , 'bold', 'italic', 'underline', { 'color': [] }, 'image'],
-           
-          ],
+      <div className="QuillHeaderContainer" >
+        <input className="QuillTitle" type="text" placeHolder="제목을 입력해주세요" onChange={handleTitle}></input>
+        <input className="QuillNickname" type='text' placeholder='닉네임' onChange={handleNickname} ></input>
+        <button className="summitTextButton" 
+          onClick={handleUpload}
+          disabled={!(imageComplete && titleComplete && nicknameComplete)}>글 입력</button>
+      </div>
+    
+      <ReactQuill
+        placeholder='write something amazing....'
+        theme="snow"
+        style={{
+          height: 880,
+          width: 800,
+          marginTop: '16px',
+          marginBottom: '8px',
+          display: 'flex',
+          flexDirection: 'column'
         }}
+      
+        value={body}
 
-        formats={[
-          'font', 
-          'bold', 'italic','color', 
-          'image',
-        ]}
+        modules={{
+          toolbar: [
+              [{ 'font': [] }],
+              [{'align': []} , 'bold', 'italic', 'underline', { 'color': [] }, ],
+           
+            ],
+          }}
+
+          formats={[
+            'font', 
+            'bold', 'italic','color', 
+          ]}
       
         onChange={handleBody}
       />
@@ -118,11 +119,12 @@ function BlogPost() {
       포스팅 썸네일
     </div>
     
-  <div className="postingSumanil">
+    <div className="postingSumanil">
       <input 
         type="file" 
         accept="image/png, image/jpeg"
         onChange={handleImage}/>
+    </div>
   </div>
 </div>
   );
