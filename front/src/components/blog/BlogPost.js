@@ -16,8 +16,7 @@ function BlogPost() {
   const [nickname, setNickname] = useState('')
 
   const [body, setBody] = useState('')
-  const [userId, setUserId] = useState('')
-
+  
 
 
   // Quill에 작성한 글자 정보. body라는 스테이트에 저장.
@@ -54,7 +53,7 @@ function BlogPost() {
   }
 
 
-  // 이미지 업로드 함수.. 버튼 클릭시 입력된 이미지를 폼데이터 형식으로 전환, // APi로 백으로 전송, // 관련 Api는 이름이랑 주소를 몰라 아직 작성 안했습니다. multer는 가칭입니다. // 백에서 맞춰고 알려주세요.
+  // 업로드 함수: 닉네임, 제목, 글내용, image의 Url
   
   const handleUpload = async () => {
     
