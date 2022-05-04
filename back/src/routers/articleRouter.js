@@ -102,7 +102,7 @@ articleRouter.post("/article/uploadFile", //loginRequired,
         error: false,
       });
     } else{
-      res.status(200).send(fileData);
+      res.status(200).send(fileData.location);
     }
   } catch (error) {
     next(error);
