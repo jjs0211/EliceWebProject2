@@ -64,12 +64,27 @@ function BlogPost() {
 
   // 이미지 업로드 함수.. 버튼 클릭시 입력된 이미지를 폼데이터 형식으로 전환, // APi로 백으로 전송, // 관련 Api는 이름이랑 주소를 몰라 아직 작성 안했습니다. multer는 가칭입니다. // 백에서 맞춰고 알려주세요.
   
-  const handleUpload = async (e) => {
-    const formData = new FormData()
-    formData.append("image", image)
-    const res = await Api.imagePost("article/uploadFile", formData)
-    console.log(res)  
-  }
+  // const handleUpload = async (e) => {
+  //   const formData = new FormData()
+  //   formData.append("image", image)
+  //   const res = await Api.imagePost("article/uploadFile", formData)
+  //   console.log(res)  
+  // }
+
+  // const handleUpload = async (e) => {
+  //   const data = {
+  //     "nickName": nickname,
+  //     "title": title,
+  //     "content": body,
+  //     "filePath": title,
+  //   }
+  //   const res = await Api.post("article/create", data)
+  //   console.log(res)
+  // }
+ 
+
+
+
 
   return (
   <div className="QuillContainer">
@@ -77,7 +92,7 @@ function BlogPost() {
     <input className="QuillTitle" type="text" placeHolder="제목을 입력해주세요" onChange={handleTitle}></input>
     <input className="QuillNickname" type='text' placeholder='닉네임' onChange={handleNickname} ></input>
     <button className="summitTextButton" 
-      onClick={handleUpload}
+      // onClick={handleUpload}
       disabled={!(imageComplete && titleComplete && nicknameComplete)}>글 입력</button>
     </div>
     
