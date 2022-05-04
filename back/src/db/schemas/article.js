@@ -17,11 +17,11 @@ const articleSchema = new Schema(
       type: String,
       required: true,
     },
-    // // 유저의 고유 id
-    // id: {
-    //   type: String,
-    //   required: true,
-    // },
+    // 게시글의 고유 id
+    id: {
+      type: String,
+      required: true,
+    },
     // 이미지 파일 경로
     filePath: {
       type: String,

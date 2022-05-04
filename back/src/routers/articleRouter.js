@@ -109,28 +109,28 @@ articleRouter.post("/article/uploadFile", //loginRequired,
   }
 });
 
-articleRouter.put("/article/saveFile", //loginRequired, 
-  async function(req, res, next) {
-  try{
-  //   const userId = req.currentUserId;
-  //   const currentUserInfo = await userAuthService.getUserInfo({ userId });
+// articleRouter.put("/article/saveFile", //loginRequired, 
+//   async function(req, res, next) {
+//   try{
+//   //   const userId = req.currentUserId;
+//   //   const currentUserInfo = await userAuthService.getUserInfo({ userId });
 
-  //   if (currentUserInfo.errorMessage){
-  //     throw new Error(currentUserInfo.errorMessage);
-  // }
+//   //   if (currentUserInfo.errorMessage){
+//   //     throw new Error(currentUserInfo.errorMessage);
+//   // }
 
-  const { articleId, filePath } = req.body;
+//   const { articleId, filePath } = req.body;
 
-  const newArticleFile = await ArticleService.addFileInfo({ articleId, filePath });
-  console.log(newArticleFile)
-  if (newArticleFile){
-    throw new Error(newArticleFile.errorMessage);
-  }
-  res.status(200).json(newArticleFile);
-} catch (error){
-  next(error);
-}
-});
+//   const newArticleFile = await ArticleService.addFileInfo({ articleId, filePath });
+
+//   if (newArticleFile){
+//     throw new Error(newArticleFile.errorMessage);
+//   }
+//   res.status(200).json(newArticleFile);
+// } catch (error){
+//   next(error);
+// }
+// });
 
 
 /**
@@ -162,34 +162,33 @@ articleRouter.get("/article/:id", async function (req, res, next) {
       const article = await Article.findById({ articleId });
       const currentId = req.currentUserId
 
-      // 조회수
-      if (article){
-        if (!viewObj[articleId]) {
-               viewObj[articleId] = []
-        }
-        if (viewObj[articleId].indexOf(currentId) == -1){
-          article.visited ++
-          viewObj[articleId].push(currentId)
-          setTimeout(() => {
-            viewObj[articleId].splice(
-              viewObj[articleId].indexOf(currentId),
-              1
-            )
-          }, 86400000)
-          for (let i in viewObj){
-             if (i.length ==0){
-               delete viewObj.i
-             }
-           }
-        }
-        console.log(viewObj)
-        await article.save()
-        console.log(article)
-      // if (user.errorMessage) {
-      //   throw new Error(user.errorMessage);
+      // // 조회수
+      // if (article){
+      //   if (!viewObj[articleId]) {
+      //          viewObj[articleId] = []
+      //   }
+      //   if (viewObj[articleId].indexOf(currentId) == -1){
+      //     article.visited ++
+      //     viewObj[articleId].push(currentId)
+      //     setTimeout(() => {
+      //       viewObj[articleId].splice(
+      //         viewObj[articleId].indexOf(currentId),
+      //         1
+      //       )
+      //     }, 86400000)
+      //     for (let i in viewObj){
+      //        if (i.length ==0){
+      //          delete viewObj.i
+      //        }
+      //      }
+      //   }
+      //   await article.save()
+      // // if (user.errorMessage) {
+      // //   throw new Error(user.errorMessage);
+      // // }
+      // res.status(200).send(article);
       // }
       res.status(200).send(article);
-      }
     } catch (error) {
       next(error);
     }

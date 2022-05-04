@@ -11,7 +11,7 @@ class ArticleService {
         // title : 게시글 제목
         // content : 게시글 내용
         
-        const newArticle = { nickName, title, content, filePath };
+        const newArticle = { id, nickName, title, content, filePath };
         const createdNewArticle = await Article.create({ newArticle });
 
         return createdNewArticle
