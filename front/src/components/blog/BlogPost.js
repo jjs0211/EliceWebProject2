@@ -13,7 +13,7 @@ function BlogPost() {
   const [image, setImage] = useState('')
 
   const [nicknameComplete, setNicknameComplete] = useState(false)
-  const [nickname, setNickname] = useState('')
+  const [nickName, setNickname] = useState('')
 
   const [body, setBody] = useState('')
   const [userId, setUserId] = useState('')
@@ -64,11 +64,19 @@ function BlogPost() {
 
   // 이미지 업로드 함수.. 버튼 클릭시 입력된 이미지를 폼데이터 형식으로 전환, // APi로 백으로 전송, // 관련 Api는 이름이랑 주소를 몰라 아직 작성 안했습니다. multer는 가칭입니다. // 백에서 맞춰고 알려주세요.
   
-  const handleUpload = async (e) => {
+  const handleUpload = async () => {
+
     const formData = new FormData()
     formData.append("image", image)
-    const res = await Api.imagePost("article/uploadFile", formData)
-    console.log(res)  
+    const filePath = await Api.imagePost("article/uploadFile", formData)
+    const data = {
+      nickName: nickName,
+      title: title,
+      content: body,
+      filePath: filePath.data,
+    }
+    const res = await Api.post("article/create", data)
+    console.log(res)
   }
 
   return (
