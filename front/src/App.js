@@ -1,6 +1,6 @@
 // import './App.css';
 import React, { useState, useEffect, useReducer, createContext } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useParams, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import * as Api from "./api";
 import { loginReducer } from "./reducer";
@@ -14,13 +14,12 @@ import Blog from './components/blog/Blog';
 import BlogPost from './components/blog/BlogPost'
 import BlogArticle from './components/blog/BlogArticle';
 
-
 export const UserStateContext = createContext(null);
 export const dispatchContext = createContext(null);
 
-
 function App() {
-    // useReducer 훅을 통해 userState 상태와 dispatch함수를 생성함.
+    
+  // useReducer 훅을 통해 userState 상태와 dispatch함수를 생성함.
     const [userState, dispatch] = useReducer(loginReducer, {
       user: null,
     });
@@ -69,6 +68,7 @@ function App() {
               <Route path="/graph" element={<GraphPage />} />
               <Route path="/blogArticle" element={<BlogArticle/>} />
               <Route path="/blogArticlePreview" element={<BlogArticlePreview/>} />
+              <Route path="/blogArticle/:id" element={<BlogArticle/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="*" element={<Main />} />
@@ -80,3 +80,6 @@ function App() {
 }
 
 export default App;
+
+
+{/* <Route path="/users/:userId" element={<Portfolio />} /> */}
