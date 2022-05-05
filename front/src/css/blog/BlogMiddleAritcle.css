@@ -1,6 +1,7 @@
 .mainTitle {
-  margin-top: 1rem;
-  margin-bottom: 0;
+  height: 5%;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
   margin-left: 0;
   margin-right: 0;
   background-color: #F2F2F2;
@@ -13,7 +14,7 @@
 .blogMiddleArticleContainer {
 
   width: auto;
-  height: 47.5rem;
+  height: 48%;
   background-color: #F2F2F2;
   display: flex;
   justify-content: center;
@@ -24,6 +25,8 @@
 
   width: 40%;
   height: 80%;
+  min-width: 56.5rem;
+  min-height: 30rem;
   background-color: #F2F2F2;
   padding: 0.625rem;
   display: flex;
