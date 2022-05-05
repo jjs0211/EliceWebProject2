@@ -1,7 +1,7 @@
 .blogHeaderContainer {
 
 width: auto;
-height: 270px;
+height: 16.875rem;
 
 }
 
@@ -38,7 +38,7 @@ color:  #19C764;
 
   width: 5%;
   height: 100%;
-  font-size: 42px;
+  font-size: 2.625rem;
   line-height: 2;
 }
 
@@ -59,7 +59,7 @@ color:  #19C764;
 .naviContent button {
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 800;
   line-height: 6;
   border: none;
@@ -74,7 +74,7 @@ color:  #19C764;
 
 .naviContent a {
 
-  margin-right: 25px;
+  margin-right: 1.6rem;
 }
 
 .navi3 {

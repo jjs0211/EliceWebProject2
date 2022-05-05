@@ -1,18 +1,18 @@
 
 .PreviewContainer {
 
-  width: 270px;
-  height: 210px;
+  width: 16.875rem;
+  height: 13.125rem;
   border: solid;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   overflow: hidden;
-  margin: 10px;
+  margin: 0.625rem;
 }
 
 .PreviewimageBox {
 
-  width: 270px;
-  height: 180px;
+  width: 16.875rem;
+  height: 11.25rem;
   border-bottom: solid;
   margin-bottom: 0;
 }
@@ -27,6 +27,6 @@
 
 .titleBox {
 
-  width: 270px;
-  height: 30px;
+  width: 16.875rem;
+  height: 2rem;
 }
