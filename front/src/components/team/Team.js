@@ -7,8 +7,6 @@ import Hyemin from '../../images/team/Hyemin.jpeg'
 import Hyeju from '../../images/team/Hyeju.jpeg'
 import Kwanho from '../../images/team/Kwanho.jpeg'
 import Jongchan from '../../images/team/Jongchan.jpeg'
-import Sangun from '../../images/team/Sangun.jpeg'
-
 
 function Team() {
 
@@ -58,16 +56,7 @@ function Team() {
                       <p>FE</p>
                       <div>
                           <img src={Github} alt="github-icon"></img>
-                          <a href=""></a>
-                      </div>
-                  </li>
-                  <li>
-                      <img class="profilePic" src={Sangun} alt="sangun-profile-pic"></img>
-                      <h2>박상언</h2>
-                      <p>FE</p>
-                      <div>
-                          <img src={Github} alt="github-icon"></img>
-                          <a href=""></a>
+                          <a href="https://kdt-gitlab.elice.io/aprilgarden34">aprilgarden34</a>
                       </div>
                   </li>
               </ul>
