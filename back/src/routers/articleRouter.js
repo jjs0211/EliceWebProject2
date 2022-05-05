@@ -160,34 +160,11 @@ articleRouter.get("/article/:id", async function (req, res, next) {
 
       // 위 id를 이용하여 db에서 데이터 찾기
       const article = await Article.findById({ articleId });
-      const currentId = req.currentUserId
 
-      // // 조회수
-      // if (article){
-      //   if (!viewObj[articleId]) {
-      //          viewObj[articleId] = []
-      //   }
-      //   if (viewObj[articleId].indexOf(currentId) == -1){
-      //     article.visited ++
-      //     viewObj[articleId].push(currentId)
-      //     setTimeout(() => {
-      //       viewObj[articleId].splice(
-      //         viewObj[articleId].indexOf(currentId),
-      //         1
-      //       )
-      //     }, 86400000)
-      //     for (let i in viewObj){
-      //        if (i.length ==0){
-      //          delete viewObj.i
-      //        }
-      //      }
-      //   }
-      //   await article.save()
-      // // if (user.errorMessage) {
-      // //   throw new Error(user.errorMessage);
-      // // }
-      // res.status(200).send(article);
-      // }
+      // get요청이 왔을 때 조회수 +1
+      article.visited++;
+      await article.save();
+      
       res.status(200).send(article);
     } catch (error) {
       next(error);
