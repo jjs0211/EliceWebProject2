@@ -13,10 +13,12 @@ function MainHeader() {
   const navigate = useNavigate();
   
   return (
+  
     <div className="MainHeader">
+      <div className="headerColumn1"></div>
+      <div className="headerColumn2">
       <div className="HeaderTitle">Foodlog</div>
       <div className="HeaderTitle2">빅데이터 기반으로 한 식품 영양소와 관련 기사 </div>
-      {/* <div className="HeaderTitle3">데일리 헬스</div> */}
       <div className="imageBox">
         <img className="image1" 
           src={mainHeaderImg1_1} alt="블루베리" />
@@ -28,8 +30,9 @@ function MainHeader() {
           src={mainHeaderImg3_1} alt="야채" />   
       </div>
       <button className="linkButton" onClick={() => navigate('/blog')}>블로그 링크 바로가기</button>
+      </div>
     </div>
-    
+  
     )
 }
 

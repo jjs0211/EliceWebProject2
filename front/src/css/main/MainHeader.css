@@ -1,11 +1,29 @@
 .MainHeader {
   
-  width: 43.75rem;
+  width: 62.5rem;
   height: 31.25rem;
   background-color: white;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.headerColumn1 {
+
+  width: 9rem;
+  height: 31.25rem;
 
 }
+
+.headerColumn2 {
+
+width: 53.5rem;
+height: 31.25rem;
+
+}
+
+
 
 .HeaderTitle {
   width: 100%;
