@@ -1,16 +1,46 @@
-.blogWrapper {
+.blogHeaderContainer {
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 16.875rem;
   
 }
+  
+.blogMiddleContainer {
+  /* background: linear-gradient(90deg,
+  #151716 50%,
+  #1b2530 100%); */
+  margin: 0;
+  /*배경 높이*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+/* 속지 부분 */
+/* grid-template-columns : 그리드 부분 */
+.blogMiddleInner {
+  margin: 0;
+  height: 80%;
+  width: auto;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.blogTailContainer {
+
+  width: auto;
+  height: 400px;
+  
+}
+/* 
 .blogContainer {
-
+  margin: 0;
   width: 100%;
   height: 100%;
   background-color: #F2F2F2;
   min-width: 93.75rem;
   min-height: 75rem;
-}
+} */
 

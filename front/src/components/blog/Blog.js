@@ -7,10 +7,16 @@ import BlogTail from './BlogTail';
 
 function Blog() {
   return (
-    <div className="blogWrapper">
-      <div className="blogContainer">
+    <div>
+      <div className="blogHeaderContainer">
         <BlogHeader />
-        <BlogMiddleArticle />
+      </div>
+      <div className="blogMiddleContainer">
+        <div className='blogMiddleInner'>
+          <BlogMiddleArticle />
+        </div>
+      </div>
+      <div className="blogTailContainer">
         <BlogTail />
       </div>
     </div>
