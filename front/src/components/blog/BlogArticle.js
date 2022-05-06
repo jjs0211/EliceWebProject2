@@ -1,9 +1,13 @@
 import React, {useState, uesEffect, useEffect}  from 'react'
-import {useNavigatge, useParams} from 'react-router-dom'
+import { useNavigate, useParams } from "react-router-dom";
 import '../../css/blog/BlogArticle.css'
 import * as Api from '../../api'
 
 function BlogArticle() {
+
+// useNavigate 함수
+
+const navigate = useNavigate()
 
 
 // 기사의 고유 id값이 param으로 되어있고 이걸 가져온다.
@@ -30,38 +34,6 @@ function BlogArticle() {
   const [updatedTime, setUpdatedTime] = useState('')
 
 
-// 좋아요, 싫어요 기능 관련 함수. 백으로 좋아요와 싫어요 숫자가 늘어난 정보 Put요청으로 보낸다.
-
-  const [recomendNumber, setRecomendNumber] = useState(0)
-  const [decomendNumber, setDecomendNumver] = useState(0)
-  const [isButtonClicked, setIsButtonClicked] = useState(false)
-
-  const recommendButton = () => {
-    setRecomendNumber((state) => state+1)
-    setIsButtonClicked(true)
-  }
-
-  const decommendButton = () => {
-    setDecomendNumver((state) => state+1)
-    setIsButtonClicked(true)
-  }
-
- 
- // 밑에는 백으로 좋아요 관련 put요청 보내는건데 일단 보류 
- 
-  // useEffect(() =>{
-    
-  //   const userComment = async() => {
-      
-  //     const res = await Api.put(`article/${id}` , {
-
-  //     })
-    
-  //   }
-  
-  
-  // }, [])
-
 
 // -------------------------------------------------------- 컴포넌트  -----------------------------------------------------//
 
@@ -82,8 +54,7 @@ function BlogArticle() {
         <div className="articleContent" dangerouslySetInnerHTML={{ __html: articleInfo.content }}>  
         </div>
         <div className="articleRecommand">
-          <button onClick={recommendButton} disabled={isButtonClicked}>개념</button>
-          <button onClick={decommendButton} disabled={isButtonClicked}>비추</button>
+            <button className='blogNavigaion' onClick={() => navigate('/blog')}>블로그</button>
         </div>
       </div>
     </div>
