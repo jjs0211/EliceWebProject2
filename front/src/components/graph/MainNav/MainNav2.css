@@ -29,7 +29,7 @@
 .GuideButton {
   height: 100%;
   font-size: 40px;
-  color: white;
+
   border: none;
   background: none;
   
@@ -37,58 +37,56 @@
 
 .GuideButton > a{
   text-decoration: none;
-  color: white;
+  color: rgb(163, 133, 205);
 }
 
 .DonutButton {
   height: 100%;
   font-size: 40px;
-  color: white;
   border: none;
   background: none;
 }
 
 .DonutButton>a {
   text-decoration: none;
-  color: white;
+    color: rgb(38, 155, 243);
 }
 
 
 .RadarButton {
   height: 100%;
   font-size: 40px;
-  color: white;
   border: none;
   background: none;
 }
 
 .RadarButton>a {
   text-decoration: none;
-  color: white;
+  color: rgb(38,226,157);
 }
 
 .BarButton {
   height: 100%;
   font-size: 40px;
-  color: white;
   border: none;
   background: none;
 }
 
 .BarButton>a {
   text-decoration: none;
-  color: white;
+  color: rgb(254, 182, 51);
 }
 
 .BubbleButton {
   height: 100%;
   font-size: 40px;
-  color: white;
   border: none;
   background: none;
 }
 
 .BubbleButton>a {
   text-decoration: none;
-  color: white;
+  color: rgb(255,
+    93,
+    110);
 }
