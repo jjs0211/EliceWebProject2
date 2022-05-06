@@ -11,7 +11,8 @@
 .QuillContainer {
 
   width: 50rem;
-  height: 72.5rem; 
+  height: 59rem;
+ 
 
 }
 
@@ -64,7 +65,8 @@
   height: 3%;
   font-size: 1.25rem;
   font-weight: 500;
-
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .postingSumanil {
