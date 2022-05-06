@@ -6,7 +6,7 @@ import 'swiper/swiper.min.css'
 import '../../css/blog/BlogArticlePreview.css'
 
 
-const BlogSlider = ({articleList}) => {
+const BlogSlider = ({topviewedArticleList}) => {
   const navigate = useNavigate()
 
   return (
@@ -16,7 +16,7 @@ const BlogSlider = ({articleList}) => {
       centeredSlides
       onSwiper={swiper => console.log(swiper)}
     >
-      {articleList && articleList.map((article) => (
+      {topviewedArticleList && topviewedArticleList.map((article) => (
         <SwiperSlide>
           <div className="PreviewContainer" >
             <div className="PreviewimageBox">

@@ -3,25 +3,7 @@ import * as Api from '../../api'
 import '../../css/blog/BlogTail.css'
 import BlogSlider from './BlogSlider';
 
-function BlogTail() {
-
-const [articleList, setArticleList] = useState('') 
-
-  useEffect(() => {
-    Api.get("articlelist").then((res) => {
-      console.log(res.data)
-      const articleList = res.data
-      articleList.sort((a, b) => {
-        if (a.visited > b.visited) return -1;
-        if (a.visited < b.visited) return 1;
-        return 0  
-      })
-
-     
-      const newArticleList = articleList.slice(0,5)
-      setArticleList(newArticleList)})
-    }, [])
-
+function BlogTail({topviewedArticleList}) {
 
   return (
     <>
@@ -30,7 +12,7 @@ const [articleList, setArticleList] = useState('')
       </div>
       <div className="blogTailSliderBox">
         <div className="blogTailSlider">        
-        <BlogSlider articleList={articleList} />
+        <BlogSlider topviewedArticleList={topviewedArticleList} />
         </div>
       </div>
     </>
