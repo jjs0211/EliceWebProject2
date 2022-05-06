@@ -8,10 +8,12 @@ import * as Api from '../../../../api';
 const RadarNav = () => {
   const [categories, setCategories] = useState("")  // sidebar에 보여질 선택지들
   const [selectedCategroy, setSelectedCategory] = useState("")  // 실제 선택한거
+  const [foods, setFoods] = useState("")
+  const [selectedFood, setSelectedFood] = useState("")
   const [data, setData] = useState("")
 
   useEffect(() => {
-    Api.get("food/category")
+    Api.get("/food/foodname?category=Beverages")
     .then((res) => {
       console.log('방사형누름')
       // console.log(res.data)
@@ -20,21 +22,33 @@ const RadarNav = () => {
     })
   }, [])
   
-  // useEffect(() => {
-  //   if(selectedCategroy){
-  //     //
-  //   .then((res) => {
-  //     setSelectedCategory(res.data)
-  //   })
-  //   }
-  // }, [selectedCategroy])
+  useEffect(() => {
+    if(selectedCategroy){
+      Api.get("food/category")
+    .then((res) => {
+      setSelectedCategory(res.data)
+    })
+    }
+  }, [selectedCategroy])
+
+  useEffect(() => {
+    if(selectedCategroy){
+      Api.get("/food/foodname?category=Fish")
+      .then((res) => {
+        console.log('2번째 사이드바_예제 디저트')
+        console.log(res.data)
+        setFoods(res.data)
+      })
+    }
+  }, [])
+
   
 
   return (
     <div>
       <span data = {categories}>방사형네비게이션{categories}</span>
-      <Sidebar data = {categories} setData={setSelectedCategory}></Sidebar>
-      <Sidebar></Sidebar>
+      {categories && <Sidebar data = {categories} setData={setSelectedCategory}></Sidebar>}
+      {foods && <Sidebar data = {foods} setData={setSelectedFood}></Sidebar>}
       <div>
         <Radar></Radar>
         <SampleR></SampleR>

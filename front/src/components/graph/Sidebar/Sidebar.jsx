@@ -12,22 +12,22 @@ const Sidebar = (props) => {
   const [selected, setSelected] = useState(0)
   // let newData = {...props.data}
   // console.log({newData})
-  const dataexam = ['bruits', 'grains', 'meat', 'Seafood', 'Beverage']
-  console.log(dataexam)
-  const dataexam2 = props.data
+  // const dataexam = ['bruits', 'grains', 'meat', 'Seafood', 'Beverage']
+  // console.log(dataexam)
+  // const dataexam2 = props.data
   return (
     <div className="Sidebar">
-      <p>up</p>
+      {/* <p>up</p>
       <div>
         {props.data}
-        {/* {dataexam} */}
-        {/* {dataexam2} */}
+        {dataexam}
+        {dataexam2}
       </div>
-      <p>down</p>
+      <p>down</p> */}
 
 
       <div className='menu'>
-        {props.data ? (props.data.map((item, index) => {
+        {/* {props.data ? (props.data.map((item, index) => {
           return (
             <div className={selected===index?'menuItem active': 'menuItem'}
               key={index}
@@ -39,22 +39,22 @@ const Sidebar = (props) => {
               
             </div>
             )
-        })):(<></>)}
+        })):(<></>)} */}
         
-        {/* {SidebarData.map((item, index) => {
+        {props.data && props.data.map((item, index) => {
           return (
             <div className={selected===index?'menuItem active': 'menuItem'}
               key={index}
               onClick={()=>setSelected(index)}
             >
               <span>
-                {item.heading}
+                {item}
               </span>
               
             </div>
             )
         })}
-         */}
+        
 
         </div>
       </div>

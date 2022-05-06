@@ -89,10 +89,7 @@ const MainNav2 = () => {
           setMode((mode) => 'DONUT');
         }}></Donut>
         <Radar title="RadarB" onChangeMode={() => {
-          setMode((mode) => {
-            var newMode = {...mode}
-            newMode = 'RADAR'
-          return newMode});
+          setMode((mode) => 'RADAR');
         }}></Radar>       
         <Bar title="BarB" onChangeMode={() => {
           setMode((mode) => 'BAR');
