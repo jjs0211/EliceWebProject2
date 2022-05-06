@@ -9,7 +9,6 @@ import GraphPage from './components/graph/GraphPage';
 import Main from './components/main/Main'
 import Login from './components/login/Login'
 import Register from "./components/register/Register";
-import BlogArticlePreview from "./components/blog/BlogArticlePreview"
 import Blog from './components/blog/Blog';
 import BlogPost from './components/blog/BlogPost'
 import BlogArticle from './components/blog/BlogArticle';
@@ -67,8 +66,6 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blogPost" element={<BlogPost />} />
               <Route path="/graph" element={<GraphPage />} />
-              <Route path="/blogArticle" element={<BlogArticle/>} />
-              <Route path="/blogArticlePreview" element={<BlogArticlePreview/>} />
               <Route path="/blogArticle/:id" element={<BlogArticle/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
