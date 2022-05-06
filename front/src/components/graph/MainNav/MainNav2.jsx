@@ -7,10 +7,11 @@ import RadarNav from './NavSelect/RadarNav';
 import { useEffect } from 'react';
 import BubbleNav from './NavSelect/BubbleNav';
 import GuideNav from './NavSelect/GuideNav';
+import './MainNav2.css'
 
 const Guide = (props) => {
-  return <div>
-    <button><a href="/" onClick={function (event) {
+  return <div style={{display: 'inline-block'}}>
+    <button className='GuideButton'><a href="/" onClick={function (event) {
       event.preventDefault();
       props.onChangeMode();
     }}>{props.title}</a></button>
@@ -19,7 +20,7 @@ const Guide = (props) => {
 
 const Donut = (props) => {
   return <div>
-  <button><a href="/" onClick={function (event) {
+  <button className='DonutButton'><a href="/" onClick={function (event) {
     event.preventDefault();
     props.onChangeMode();
   }}>{props.title}</a></button>
@@ -27,7 +28,7 @@ const Donut = (props) => {
 }
 const Radar = (props) => {
   return <div>
-  <button><a href="/" onClick={function (event) {
+  <button className='RadarButton'><a href="/" onClick={function (event) {
     event.preventDefault();
     props.onChangeMode();
   }}>{props.title}</a></button>
@@ -36,7 +37,7 @@ const Radar = (props) => {
 
 const Bar = (props) => {
   return <div>
-  <button><a href="/" onClick={function (event) {
+  <button className='BarButton'><a href="/" onClick={function (event) {
     event.preventDefault();
     props.onChangeMode();
   }}>{props.title}</a></button>
@@ -45,7 +46,7 @@ const Bar = (props) => {
 
 const Bubble = (props) => {
   return <div>
-  <button><a href="/" onClick={function (event) {
+  <button className='BubbleButton'><a href="/" onClick={function (event) {
     event.preventDefault();
     props.onChangeMode();
   }}>{props.title}</a></button>
@@ -80,29 +81,33 @@ const MainNav2 = () => {
   }
 
   return (
-    <div>
-      <div>
-        <Guide title="GuideB" onChangeMode={() => {
-          setMode((mode) => 'GUIDE');
-        }}></Guide>
-        <Donut title="DonutB" onChangeMode={() => {
-          setMode((mode) => 'DONUT');
-        }}></Donut>
-        <Radar title="RadarB" onChangeMode={() => {
-          setMode((mode) => 'RADAR');
-        }}></Radar>       
-        <Bar title="BarB" onChangeMode={() => {
-          setMode((mode) => 'BAR');
-        }}></Bar>
-        <Bubble title="BubbleB" onChangeMode={() => {
-          setMode((mode) => 'BUBBLE');
-        }}></Bubble>
+    <div className='MainNav' >
+      <div className='MainNavButton'>
+        <div className='MainNavGlass1'>
+          <Guide title="GuideB" onChangeMode={() => {
+            setMode((mode) => 'GUIDE');
+          }}></Guide>
+          <Donut title="DonutB" onChangeMode={() => {
+            setMode((mode) => 'DONUT');
+          }}></Donut>
+          <Radar title="RadarB" onChangeMode={() => {
+            setMode((mode) => 'RADAR');
+          }}></Radar>       
+          <Bar title="BarB" onChangeMode={() => {
+            setMode((mode) => 'BAR');
+          }}></Bar>
+          <Bubble title="BubbleB" onChangeMode={() => {
+            setMode((mode) => 'BUBBLE');
+          }}></Bubble>
+        </div>
       </div>
-      <div>
-        <span>{content}</span>
-      </div>
-        
+
+      <div className='MainNavGlass2'>
+        {content}
+      </div> 
     </div>
+
+
   )
 }
 

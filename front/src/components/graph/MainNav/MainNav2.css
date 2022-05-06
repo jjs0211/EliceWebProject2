@@ -1,0 +1,94 @@
+.MainNav{
+  display: flex;
+  flex-direction: column;
+}
+
+.MainNavButton {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.MainNavGlass1 {
+      padding-top: 2rem;
+  display: flex;
+  flex: auto;
+  /* margin: 0 auto; */
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 30px;
+  max-width: 1100px;
+}
+
+.MainNavGlass2 {
+  display: flex;
+  flex: 1
+}
+
+.GuideButton {
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  border: none;
+  background: none;
+  
+}
+
+.GuideButton > a{
+  text-decoration: none;
+  color: white;
+}
+
+.DonutButton {
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  border: none;
+  background: none;
+}
+
+.DonutButton>a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.RadarButton {
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  border: none;
+  background: none;
+}
+
+.RadarButton>a {
+  text-decoration: none;
+  color: white;
+}
+
+.BarButton {
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  border: none;
+  background: none;
+}
+
+.BarButton>a {
+  text-decoration: none;
+  color: white;
+}
+
+.BubbleButton {
+  height: 100%;
+  font-size: 40px;
+  color: white;
+  border: none;
+  background: none;
+}
+
+.BubbleButton>a {
+  text-decoration: none;
+  color: white;
+}

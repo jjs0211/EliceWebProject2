@@ -12,7 +12,7 @@ import MainNav2 from './MainNav/MainNav2';
 
 const GraphPage = () => {
   return (
-    <div>
+    <div className="GraphPageWrap">
       <div className="graphHeaderContainer">
         {/* <div className="graphHeaderImg">
         </div> */}
@@ -47,15 +47,16 @@ const GraphPage = () => {
       </div> */}
       <div>
         <div>
-          <MainNav2></MainNav2>
           {/* <MainNav></MainNav> */}
         </div>
       </div>
       <div className='GraphPage'>
         <div className="GraphPageGlass">
+          {/* <Sidebar></Sidebar>
           <Sidebar></Sidebar>
-          <Sidebar></Sidebar>
-          <MainDash></MainDash>
+          <MainDash></MainDash> */}
+          <MainNav2></MainNav2>
+
         </div>
       </div>
 

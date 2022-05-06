@@ -3,39 +3,48 @@ import MainDash from '../../MainDash/MainDash';
 import Sidebar from './../../Sidebar/Sidebar';
 import * as Api from '../../../../api';
 import Donut from '../../Apex/Donut';
-import SampleD from '../../Apex/SampleD';
-
+import './NavSelect.css'
 
 
 const DonutNav = () => {
-    const [categories, setCategories] = useState("")  // sidebar에 보여질 선택지들
-    const [selectedCategroy, setSelectedCategory] = useState("")  // 실제 선택한거
+  const [categories, setCategories] = useState("")  // sidebar에 보여질 선택지들
+  const [selectedCategroy, setSelectedCategory] = useState("")  // 실제 선택한거
     // const [foods, setFoods] = useState("")
     // const [selectedFood, setSelectedFood] = useState("")
-    // const [data, setData] = useState("")
+  const [data, setData] = useState("")
 
-    useEffect(() => {
-      Api.get("food/category")
-      .then((res) => {
-        // console.log(res.data)
-        setCategories(res.data)
-      })
-    }, [])
-   
+  useEffect(() => {
+    Api.get("food/category")
+    .then((res) => {
+      // console.log(res.data)
+      setCategories(res.data)
+    })
+  }, [])
+  // useEffect(() => {
+  // if(selectedCategroy){
+  //   Api.get("food/category")
+  // .then((res) => {
+  //   setSelectedCategory(res.data)
+  // })
+  // }}, [selectedCategroy])
+  useEffect(()=> {
+    Api.get("nutrients-agv?category=desserts")
+    .then((res)=> {
+      console.log('디저트선택')
+      console.log(res.data)
+      setData(res.data)
+    })
+  }, []) 
+
 
   return (
-    <div>
-      <span>도넛네비게이션</span>
-      {/* <div> {category} </div> */}
-      {/* <button onClick={Test2_2}>gg</button> */}
-      <Sidebar data={categories} setData={setSelectedCategory}></Sidebar>
-      <div>
-        <Donut></Donut>
-        <SampleD></SampleD>
+    <div className='content'>
+      <div className='Aside'>
+        <Sidebar data={categories} setData={setSelectedCategory}></Sidebar>
       </div>
-      {/* <MainDash></MainDash> */}
-      {/* <Test2_2></Test2_2> */}
-      
+      <div className="Graph">
+        <Donut data={data}></Donut>
+      </div>
     </div>
   )
 }

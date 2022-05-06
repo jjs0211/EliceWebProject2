@@ -23,7 +23,6 @@
     flex-direction: row;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: white;
     grid-template-columns: 1rem 15rem auto 15rem 1rem;
 
 
@@ -36,10 +35,12 @@
 }
 
 .naviTitleG {
-
     height: 100%;
     font-size: 60px;
     line-height: 2;
+    color: white;
+    border: none;
+    background: none;
 }
 
 
@@ -50,11 +51,12 @@
 }
 
 .naviContentG {
-
+    flex: none;
+    margin-left: auto;
     width: 25%;
     height: 100%;
     line-height: 8;
-    font-size: 4px;
+    font-size: 5px;
     font-weight: bold
 }
 

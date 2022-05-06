@@ -3,6 +3,7 @@ import Radar from '../../Apex/Radar';
 import SampleR from '../../Apex/SampleR';
 import Sidebar from './../../Sidebar/Sidebar';
 import * as Api from '../../../../api';
+import './NavSelect.css'
 
 
 const RadarNav = () => {
@@ -13,7 +14,7 @@ const RadarNav = () => {
   const [data, setData] = useState("")
 
   useEffect(() => {
-    Api.get("/food/foodname?category=Beverages")
+    Api.get("food/category")
     .then((res) => {
       console.log('방사형누름')
       // console.log(res.data)
@@ -33,7 +34,7 @@ const RadarNav = () => {
 
   useEffect(() => {
     if(selectedCategroy){
-      Api.get("/food/foodname?category=Fish")
+      Api.get("food/foodname?category=Fish")
       .then((res) => {
         console.log('2번째 사이드바_예제 디저트')
         console.log(res.data)
@@ -45,13 +46,15 @@ const RadarNav = () => {
   
 
   return (
-    <div>
-      <span data = {categories}>방사형네비게이션{categories}</span>
-      {categories && <Sidebar data = {categories} setData={setSelectedCategory}></Sidebar>}
-      {foods && <Sidebar data = {foods} setData={setSelectedFood}></Sidebar>}
-      <div>
+    <div className='content'>
+      <div className='Aside'>
+        {categories && <Sidebar data = {categories} setData={setSelectedCategory}></Sidebar>}
+        {foods && <Sidebar data = {foods} setData={setSelectedFood}></Sidebar>}
+      </div>
+
+      <div className='Graph'>
         <Radar></Radar>
-        <SampleR></SampleR>
+        {/* <SampleR></SampleR> */}
       </div>
     </div>
   )

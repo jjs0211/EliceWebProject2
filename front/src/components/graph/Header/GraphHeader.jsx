@@ -28,7 +28,7 @@ function GraphHeader() {
       <div className="graphHeader">
         <div className='naviBarG'>
           <div className='navi1G' />
-          <div className='naviTitleG'>FoodLog</div>
+          <button onClick={() => navigate('/main')} className='naviTitleG'>FoodLog</button>
           <div className='navi2G' />
           <div className='naviContentG'>
             {!isLogin && <button onClick={() => navigate('/register')}>회원가입</button>}
@@ -36,7 +36,7 @@ function GraphHeader() {
             {isLogin && <button>마이페이지</button>}
             {isLogin && <button onClick={logout}>로그아웃</button>}
             <button onClick={() => navigate('/blog')}>블로그</button> 
-            <button onClick={() => navigate('/main')}>메인화면</button>
+            <button onClick={() => navigate('/team')}>팀페이지</button>
           </div>
           {/* <div className='navi3' /> */}
         </div>

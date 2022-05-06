@@ -11,9 +11,14 @@
     --activeItem: #f799a354;
 }
 
+.GraphPageWrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 
 .graphHeaderContainer {
-
     width: auto;
     height: 270px;
         /* height: 330px;  최적화*/
@@ -126,7 +131,7 @@
     border-radius: 4rem;
     background-color: var(--glass);
     overflow: hidden;
-    grid-template-columns: 12rem 10rem auto;
+    /* grid-template-columns: 12rem 10rem auto; */
     /* grid-template-columns: 13rem auto; 2분할*/
 }
 
@@ -147,14 +152,15 @@
 */
 
 .GraphPageFooter {
-
+    /* flex: 1 1 0 */
+    overflow: auto;
+    margin-top: auto;
     width: auto;
     height: 410px;
 
 }
 
 .GraphPageFooterImg {
-
     width: 100%;
     height: 100%;
     /* background-image: url(../../images/blog/FoodLogBlog3.jpg); */

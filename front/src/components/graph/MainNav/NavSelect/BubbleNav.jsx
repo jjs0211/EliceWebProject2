@@ -1,15 +1,16 @@
 import React from 'react'
 import Bubble from '../../Apex/Bubble';
-import MainDash from '../../MainDash/MainDash';
 import Sidebar from './../../Sidebar/Sidebar';
+import './NavSelect.css'
 
 const BubbleNav = () => {
   return (
-    <div>
-      <span>버블네비게이션</span>
-      <Sidebar></Sidebar>
-      <Sidebar></Sidebar>
-      <div>
+    <div className='content'>
+      <div className='Aside'>
+        <Sidebar ></Sidebar>
+        <Sidebar ></Sidebar>
+      </div>
+      <div className='Graph'>
         <Bubble></Bubble>
       </div>     
     </div>

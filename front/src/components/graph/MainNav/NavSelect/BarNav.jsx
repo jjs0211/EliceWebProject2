@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import BarLine from '../../Apex/BarLine';
-import Sample1 from '../../Apex/Sample';
 import Sidebar from './../../Sidebar/Sidebar';
 import * as Api from '../../../../api';
+import './NavSelect.css'
 
 
 const BarNav = () => {
@@ -18,13 +18,14 @@ const BarNav = () => {
   }, [])
   
   return (
-    <div>
-      <span>바네비게이션</span>
-      <Sidebar data={categories} setData={setSelectedCategory}></Sidebar>
-      <Sidebar></Sidebar>
-      <div>
+    <div className='content'>
+      <div className='Aside'>
+        <Sidebar data={categories} setData={setSelectedCategory}></Sidebar>
+        <Sidebar></Sidebar>
+      </div>
+
+      <div className="Graph">
         <BarLine></BarLine>
-        <Sample1></Sample1>
       </div>
     </div>
   )
