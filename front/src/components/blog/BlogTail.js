@@ -1,13 +1,38 @@
-import React from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import React, {useState, useEffect } from 'react'
+import * as Api from '../../api'
 import '../../css/blog/BlogTail.css'
-
+import BlogSlider from './BlogSlider';
 
 function BlogTail() {
 
+const [articleList, setArticleList] = useState('') 
+
+  useEffect(() => {
+    Api.get("articlelist").then((res) => {
+      console.log(res.data)
+      const articleList = res.data
+      articleList.sort((a, b) => {
+        if (a.visited > b.visited) return -1;
+        if (a.visited < b.visited) return 1;
+        return 0  
+      })
+
+      console.log(articleList[0].id)
+      const newArticleList = articleList.slice(0,3)
+      console.log(newArticleList)
+      setArticleList(newArticleList)})
+    }, [])
+
+
   return (
     <div className="blogTailContainer">
-      <div className="blogTail">
+      <div className="blogTailTitleBox">
+        <p className="blogTailTitle">조회수 Top3</p>
+      </div>
+      <div className="blogTailSliderBox">
+        <div className="blogTailSlider">        
+        <BlogSlider articleList={articleList} />
+        </div>
       </div>
     </div>
   )
@@ -15,3 +40,4 @@ function BlogTail() {
 }
 
 export default BlogTail
+
