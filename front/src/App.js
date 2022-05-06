@@ -1,6 +1,6 @@
 // import './App.css';
 import React, { useState, useEffect, useReducer, createContext } from 'react';
-import { useParams, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import * as Api from "./api";
 import { loginReducer } from "./reducer";
@@ -82,4 +82,3 @@ function App() {
 export default App;
 
 
-{/* <Route path="/users/:userId" element={<Portfolio />} /> */}
