@@ -17,6 +17,7 @@ function BlogMiddleArticle({latestArticleList}) {
             nickname = {article.nickName}
             title = {article.title}
             src = {article.filePath}
+            vistied = {article.visited}
           />
         ))} 
       </div>

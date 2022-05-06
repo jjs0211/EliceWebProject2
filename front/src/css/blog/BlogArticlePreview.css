@@ -29,8 +29,47 @@
 }
 
 
-.titleBox {
+.previewArticleInfoBox {
 
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow: hidden;
   width: 16.875rem;
   height: 2rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;  
+}
+
+
+.previewArticleTitle0 {
+  width: 100%;
+  height: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25rem;
+  overflow: hidden;
+  margin-right: 0.4rem;
+  text-align: center;
+}
+
+.previewArticleTitle {
+  width: 90%;
+  height: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.25rem;
+  overflow: hidden;
+  margin-right: 0.4rem;
+  text-align: center;
+}
+
+.previewArticleVisited {
+  width: 9%;
+  height: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1rem;
+  overflow: hidden;
+  margin-right: 0.4rem;
+  color: red
 }

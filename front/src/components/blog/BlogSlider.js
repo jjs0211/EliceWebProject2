@@ -22,9 +22,10 @@ const BlogSlider = ({topviewedArticleList}) => {
             <div className="PreviewimageBox">
               <img src={article.filePath} alt='사진' onClick={() => navigate(`/blogArticle/${article.id}`)}></img>
             </div>
-          <div className="titleBox">
-            {article.title}
-            </div>
+            <div className="previewArticleInfoBox">
+              <div className="previewArticleTitle">{article.title}</div>
+              <div className="previewArticleVisited">{article.visited}</div> 
+        </div>
           </div>
         </SwiperSlide>
       ))}
