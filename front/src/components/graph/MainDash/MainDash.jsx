@@ -3,7 +3,6 @@ import Donut from './../Apex/Donut';
 import BarLine from './../Apex/BarLine';
 import Radar from './../Apex/Radar';
 import Bubble from './../Apex/Bubble';
-import Test2_2 from '../apitest';
 import Sample1 from './../Apex/Sample';
 import Sample2 from './../Apex/Sample2';
 import SampleD from './../Apex/SampleD';
