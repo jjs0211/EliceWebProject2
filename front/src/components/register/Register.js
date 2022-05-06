@@ -188,10 +188,11 @@ const registerationValid = (isIdValid&&isPasswordValid&&isconfirmPasswordValid&&
 /// -------------------------------------------------------------------//
 // ----------------- 여기부터 컴퍼넌트 ------------------//
 
-  return (
-    <div className='RegisterContainer'>
+return (
+  <div className="registerWrapper">
+    <div className='registerContainer'>
       <div className='headerContainer'>
-        <div className='headerTitle'>Foodlog</div>
+        <div className='headerTitle' onClick={() => navigate('/blog')}>Foodlog</div>
       </div>
       
       <div className="idContainer">
@@ -261,7 +262,7 @@ const registerationValid = (isIdValid&&isPasswordValid&&isconfirmPasswordValid&&
         onClick={handleSubmit}
       disabled={!registerationValid}>가입하기</button>
     </div>
-
+  </div>
 
   )
 
