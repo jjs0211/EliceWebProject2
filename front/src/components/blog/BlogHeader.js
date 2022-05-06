@@ -28,7 +28,7 @@ function BlogHeader() {
       <div className="blogHeader">
         <div className='naviBar'>
           <div className='navi1' />
-          <div className='naviTitle'>FoodLog</div>
+          <div className='naviTitle' onClick={() => navigate('/main')}>FoodLog</div>
           <div className='navi2' />
           <div className='naviContent'>
             {!isLogin && <button onClick={() => navigate('/register')}>회원가입</button>}
