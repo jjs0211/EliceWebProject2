@@ -1,5 +1,4 @@
-import React, {useState, useEffect } from 'react'
-import * as Api from '../../api'
+import React from 'react'
 import '../../css/blog/BlogTail.css'
 import BlogSlider from './BlogSlider';
 

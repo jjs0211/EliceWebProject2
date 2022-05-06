@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import ReactQuill from 'react-quill'
 import '../../../node_modules/react-quill/dist/quill.snow.css'

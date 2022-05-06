@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import React from 'react'
 import '../../css/blog/BlogMiddleAritcle.css'
-import * as Api from '../../api'
 import BlogArticlePreview from '../blog/BlogArticlePreview'
 
 

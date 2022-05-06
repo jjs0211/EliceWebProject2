@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as Api from '../../api'
 import '../../css/register/Register.css'
 

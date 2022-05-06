@@ -4,7 +4,7 @@ import mainHeaderImg1_1 from '../../images/main/MainHeader/mainHeader1-1.jpg'
 import mainHeaderImg2_1 from '../../images/main/MainHeader/mainHeader2-1.jpg'
 import mainHeaderImg3_1 from '../../images/main/MainHeader/mainHeader3-1.jpg'
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
