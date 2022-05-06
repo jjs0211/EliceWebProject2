@@ -3,7 +3,7 @@ import { Router } from "express";
 import { Article } from "../db";
 import { loginRequired } from "../middlewares/loginRequired";
 import { ArticleService } from "../services/articleService";
-import { userAuthService } from "../services/userService";
+import { ArticleModel } from "../db/schemas/article";
 
 const articleRouter = Router();
 const viewObj = new Object()
@@ -85,7 +85,7 @@ articleRouter.post("/article/create", //loginRequired,
   });
 
 
-articleRouter.post("/article/uploadFile", //loginRequired, 
+articleRouter.post("/article/uploadFile", loginRequired, 
   upload.single('image'), async function(req, res, next){
   try{
     // const userId = req.currentUserId;
@@ -164,7 +164,7 @@ articleRouter.get("/article/:id", async function (req, res, next) {
       // get요청이 왔을 때 조회수 +1
       article.visited++;
       await article.save();
-      
+
       res.status(200).send(article);
     } catch (error) {
       next(error);
@@ -197,6 +197,31 @@ articleRouter.get("/articlelist", async function (req, res, next){
     next(error);
   }
 });
+
+// //pagination
+// articleRouter.get('/articlelist', async function(req, res, next){ // 1
+//   var page = Math.max(1, parseInt(req.query.page));   // 2
+//   var limit = Math.max(1, parseInt(req.query.limit)); // 2
+//   page = !isNaN(page)?page:1;                         // 3
+//   limit = !isNaN(limit)?limit:6;                     // 3
+
+//   var skip = (page-1)*limit; // 4
+//   var count = await ArticleModel.countDocuments({}); // 5
+//   var maxPage = Math.ceil(count/limit); // 6
+//   var posts = await ArticleModel.find({}) // 7
+//     .sort('-createdAt')
+//     .skip(skip)   // 8
+//     .limit(limit) // 8
+//     .exec();
+//   res.status(200).send(posts)
+
+        // res.render('articlelist/index', {
+        //   posts:posts,
+        //   currentPage:page, // 9
+        //   maxPage:maxPage,  // 9
+        //   limit:limit       // 9
+        // });
+// });
 
 
 /**
@@ -286,32 +311,6 @@ articleRouter.delete("/article/:id", loginRequired, async function (req, res, ne
   } catch (error) {
     next(error);
   }
-});
-
-
-//pagination
-articleRouter.get('/', async function(req, res){ // 1
-  var page = Math.max(1, parseInt(req.query.page));   // 2
-  var limit = Math.max(1, parseInt(req.query.limit)); // 2
-  page = !isNaN(page)?page:1;                         // 3
-  limit = !isNaN(limit)?limit:10;                     // 3
-
-  var skip = (page-1)*limit; // 4
-  var count = await Post.countDocuments({}); // 5
-  var maxPage = Math.ceil(count/limit); // 6
-  var posts = await Post.find({}) // 7
-    .populate('author')
-    .sort('-createdAt')
-    .skip(skip)   // 8
-    .limit(limit) // 8
-    .exec();
-
-  res.render('posts/index', {
-    posts:posts,
-    currentPage:page, // 9
-    maxPage:maxPage,  // 9
-    limit:limit       // 9
-  });
 });
 
 
