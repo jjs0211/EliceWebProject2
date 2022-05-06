@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
+import axios from "axios";
 
-class Donut extends Component {
+
+// var url = 'http://localhost:5001/nutrients?food=rice';
+// axios({
+//   method: 'GET',
+//   url: url,
+// }).then(function (response) {
+//   Chart.updateSeries([{
+//     name: 'Rice!!',
+//     data: response.data
+//   }])
+// })
+
+
+
+
+class Radar extends Component {
 
   constructor(props) {
     super(props);
@@ -9,13 +25,13 @@ class Donut extends Component {
     this.state = {
       options: {
       xaxis: {
-categories: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
-labels: {
-  show: true,
-  style: {
-    colors: ["#a8a8a8"],
-    fontSize: "20px",
-    fontFamily: 'Arial'
+      categories: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
+      labels: {
+        show: true,
+        style: {
+          colors: ["#a8a8a8"],
+          fontSize: "20px",
+          fontFamily: 'Arial'
   }
 }
 }
@@ -29,7 +45,8 @@ labels: {
     {
       name: "Pie",
       data: [26, 21, 20, 6, 8]
-    }
+        },
+    
   ],
       labels: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
 
@@ -46,4 +63,4 @@ labels: {
   }
 }
 
-export default Donut;
+export default Radar;

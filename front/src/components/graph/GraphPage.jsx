@@ -6,6 +6,8 @@ import LogoPart from './Header/LogoPart'
 import NavPart from './Header/NavPart';
 import GraphFooter from './Footer/GraphFooter';
 import GraphHeader from './Header/GraphHeader';
+import MainNav from './MainNav/MainNav'
+import MainNav2 from './MainNav/MainNav2';
 
 
 const GraphPage = () => {
@@ -43,7 +45,12 @@ const GraphPage = () => {
           <div>Bubble</div>
         </div>
       </div> */}
-
+      <div>
+        <div>
+          <MainNav2></MainNav2>
+          {/* <MainNav></MainNav> */}
+        </div>
+      </div>
       <div className='GraphPage'>
         <div className="GraphPageGlass">
           <Sidebar></Sidebar>

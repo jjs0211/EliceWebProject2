@@ -5,25 +5,50 @@ import '../../../css/graph/Sidebar.css'
 import { SidebarData } from '../Data/Data'
 
 
-const Sidebar = () => {
-
+const Sidebar = (props) => {
+  const [data, setData] = useState('o')
+  console.log('HelloSIDEBAR')
+  console.log(props.data)
   const [selected, setSelected] = useState(0)
-
-
+  // let newData = {...props.data}
+  // console.log({newData})
+  // const dataexam = ['bruits', 'grains', 'meat', 'Seafood', 'Beverage']
+  // console.log(dataexam)
+  // const dataexam2 = props.data
   return (
     <div className="Sidebar">
+      {/* <p>up</p>
+      <div>
+        {props.data}
+        {dataexam}
+        {dataexam2}
+      </div>
+      <p>down</p> */}
 
-      {/* 사이드 바 부분 */}
+
       <div className='menu'>
-        {SidebarData.map((item, index) => {
+        {/* {props.data ? (props.data.map((item, index) => {
           return (
             <div className={selected===index?'menuItem active': 'menuItem'}
               key={index}
               onClick={()=>setSelected(index)}
             >
-              <item.icon />
               <span>
-                {item.heading}
+                {item}
+              </span>
+              
+            </div>
+            )
+        })):(<></>)} */}
+        
+        {props.data && props.data.map((item, index) => {
+          return (
+            <div className={selected===index?'menuItem active': 'menuItem'}
+              key={index}
+              onClick={()=>setSelected(index)}
+            >
+              <span>
+                {item}
               </span>
               
             </div>
