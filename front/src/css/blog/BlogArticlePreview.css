@@ -4,7 +4,10 @@
   width: 16.875rem;
   height: 13.125rem;
   border: solid;
+  border-width: thin;
   border-radius: 0.625rem;
+  border-color: gray;
+  box-shadow: 0.1px 0.1px black;
   overflow: hidden;
   margin: 0.625rem;
 }
@@ -14,6 +17,7 @@
   width: 16.875rem;
   height: 11.25rem;
   border-bottom: solid;
+  border-width: thin;
   margin-bottom: 0;
 }
 
