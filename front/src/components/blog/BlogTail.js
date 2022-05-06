@@ -17,9 +17,8 @@ const [articleList, setArticleList] = useState('')
         return 0  
       })
 
-      console.log(articleList[0].id)
-      const newArticleList = articleList.slice(0,3)
-      console.log(newArticleList)
+     
+      const newArticleList = articleList.slice(0,5)
       setArticleList(newArticleList)})
     }, [])
 
@@ -27,7 +26,7 @@ const [articleList, setArticleList] = useState('')
   return (
     <div className="blogTailContainer">
       <div className="blogTailTitleBox">
-        <p className="blogTailTitle">조회수 Top3</p>
+        <p className="blogTailTitle">조회수 Top5</p>
       </div>
       <div className="blogTailSliderBox">
         <div className="blogTailSlider">        

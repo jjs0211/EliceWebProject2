@@ -11,8 +11,8 @@ const BlogSlider = ({articleList}) => {
 
   return (
     <Swiper
-      spaceBetween={100}
-      slidesPerView={1}
+      spaceBetween={120}
+      slidesPerView={2}
       centeredSlides
       onSwiper={swiper => console.log(swiper)}
     >

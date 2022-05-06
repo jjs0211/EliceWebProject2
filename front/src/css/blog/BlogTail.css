@@ -31,9 +31,12 @@
 
 .blogTailSlider {
 
-  width: 12.7%; 
+  width: 23%; 
   height: 83%;
   min-width: 18.4725rem;
   min-height: none;
+  border: solid;
+  border-width: thin;
+  border-radius: 0.625rem;
   background-color: #F2F2F2;
 }
