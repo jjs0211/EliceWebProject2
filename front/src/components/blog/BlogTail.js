@@ -24,7 +24,7 @@ const [articleList, setArticleList] = useState('')
 
 
   return (
-    <div className="blogTailContainer">
+    <>
       <div className="blogTailTitleBox">
         <p className="blogTailTitle">조회수 Top5</p>
       </div>
@@ -33,8 +33,8 @@ const [articleList, setArticleList] = useState('')
         <BlogSlider articleList={articleList} />
         </div>
       </div>
-    </div>
-  )
+    </>
+  )   
 
 }
 

@@ -17,6 +17,8 @@
 .blogMiddleContainer {
 
   margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +35,7 @@
 .blogTailContainer {
 
   width: auto;
-  height: 24rem;
+  height: 26rem;
   background-color: #252525;
   
 }
