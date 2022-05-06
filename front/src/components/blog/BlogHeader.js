@@ -36,7 +36,7 @@ function BlogHeader() {
             {isLogin && <button onClick={() => navigate('/BlogPost')}>글작성</button>}
             {isLogin && <button onClick={logout}>로그아웃</button>}
             <button onClick={() => navigate('/graph')}>그래프</button> 
-            <button onClick={() => navigate('/main')}>메인화면</button>
+            <button onClick={() => navigate('/team')}>18팀</button>
           </div>
           <div className='navi3' />
         </div>

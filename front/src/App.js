@@ -13,6 +13,7 @@ import BlogArticlePreview from "./components/blog/BlogArticlePreview"
 import Blog from './components/blog/Blog';
 import BlogPost from './components/blog/BlogPost'
 import BlogArticle from './components/blog/BlogArticle';
+import Team from './components/team/Team'
 
 export const UserStateContext = createContext(null);
 export const dispatchContext = createContext(null);
@@ -71,7 +72,9 @@ function App() {
               <Route path="/blogArticle/:id" element={<BlogArticle/>} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/team" element={<Team />} />
               <Route path="*" element={<Main />} />
+            
             </Routes>
           </Router>
        </UserStateContext.Provider>
