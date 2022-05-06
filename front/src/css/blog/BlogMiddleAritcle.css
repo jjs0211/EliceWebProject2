@@ -1,9 +1,6 @@
 .mainTitle {
-  height: 5%;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+  padding-top: 1rem;
   background-color: #F2F2F2;
   text-align: center;
   font-size: 2rem;
@@ -23,7 +20,7 @@
 
 .blogMiddleAritcleBox {
 
-  width: 40%;
+  width: 60%;
   height: 80%;
   min-width: 56.5rem;
   min-height: 30rem;
@@ -35,5 +32,6 @@
   flex-wrap: wrap;
   
 }
+
 
 

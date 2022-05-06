@@ -1,16 +1,37 @@
 .blogWrapper {
 
-  width: 100vw;
-  height: 100vh;
-  
+  background-color: #F2F2F2;
+
 }
 
-.blogContainer {
+
+.blogHeaderContainer {
 
   width: 100%;
-  height: 100%;
-  background-color: #F2F2F2;
-  min-width: 93.75rem;
-  min-height: 75rem;
+  height: 16.875rem;
+  
+}
+  
+.blogMiddleContainer {
+
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
+
+.blogMiddleInner {
+  margin: 0;
+  height: 80%;
+  width: auto;
+}
+
+.blogTailContainer {
+
+  width: auto;
+  height: 24rem;
+  background-color: #252525;
+  
+}
