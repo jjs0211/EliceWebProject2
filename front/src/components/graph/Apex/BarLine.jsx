@@ -10,19 +10,23 @@ const BarLine = (state) => {
     let temp = []
         console.log('objobjJJ!!!!111')
     console.log(obj)
+    
+    let sortObj = obj.sort((a,b) => a.perGrams - b.perGrams);
+    console.log(sortObj) 
 
     console.log('정렬!!')
     // console.log(sortResult)
         console.log('objobjJJ!!!!222')
 
+    // 탬핑
     let tempName = []
-    for (var i =0; i<obj.length; i++){
+    for (var i = obj.length-1; i> obj.length-7; i--){
       tempName.push(obj[i].foodKorName)
     }
     console.log(tempName)
 
     let tempperGrams = []
-    for (var i =0; i<obj.length; i++){
+    for (var i = obj.length-1; i> obj.length-7; i--){
       tempperGrams.push(obj[i].perGrams)
     }
     console.log(tempperGrams)    
