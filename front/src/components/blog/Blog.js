@@ -31,20 +31,23 @@ function Blog() {
     }, [])
 
   return (
-    <div className="blogWrapper">
-      <div className="blogHeaderContainer">
-        <BlogHeader />
-      </div>
-      <div className="blogMiddleContainer">
-        <div className='blogMiddleInner'>
-          <BlogMiddleArticle latestArticleList={latestArticleList} />
+  <>
+    {latestArticleList && topviewedArticleList &&
+      <div className="blogWrapper">
+        <div className="blogHeaderContainer">
+          <BlogHeader />
         </div>
-      </div>
-      <div className="blogTailContainer">
-        <BlogTail topviewedArticleList={topviewedArticleList} />
-      </div>
-    </div>
-
+        <div className="blogMiddleContainer">
+          <div className='blogMiddleInner'>
+            <BlogMiddleArticle latestArticleList={latestArticleList} />
+          </div>
+        </div>
+        <div className="blogTailContainer">
+          <BlogTail topviewedArticleList={topviewedArticleList} />
+        </div>
+      </div> 
+    }
+  </>
   )
 
 }
