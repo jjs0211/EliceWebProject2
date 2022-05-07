@@ -12,12 +12,6 @@ class Article {
       const article = await ArticleModel.findOne({ id : articleId });
       return article;
     }
-    
-    // // 게시글의 고유한 id로 게시글 검색(db에 저장되어 있는 게시글 검색)
-    // static async findById({ articleId }) {
-    //   const article = await ArticleModel.findOne({ _id: articleId });
-    //   return article;
-    // }
 
     static async findAll(){
       const articles = await ArticleModel.find({});

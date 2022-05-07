@@ -6,7 +6,6 @@ import { ArticleService } from "../services/articleService";
 import { userAuthService } from "../services/userService";
 
 const articleRouter = Router();
-const viewObj = new Object()
 const upload = require("../modules/multer")
 
 /**
@@ -88,14 +87,7 @@ articleRouter.post("/article/create", //loginRequired,
 articleRouter.post("/article/uploadFile", //loginRequired, 
   upload.single('image'), async function(req, res, next){
   try{
-    // const userId = req.currentUserId;
-    // const currentUserInfo = await userAuthService.getUserInfo({ userId });
-    // console.log(currentUserInfo)
-    // if (currentUserInfo.errorMessage){
-    //   throw new Error(currentUserInfo.errorMessage);
-    // }
     const fileData = req.file;
-
 
     if (fileData === undefined){
       return res.status(202).json({
@@ -108,30 +100,6 @@ articleRouter.post("/article/uploadFile", //loginRequired,
     next(error);
   }
 });
-
-// articleRouter.put("/article/saveFile", //loginRequired, 
-//   async function(req, res, next) {
-//   try{
-//   //   const userId = req.currentUserId;
-//   //   const currentUserInfo = await userAuthService.getUserInfo({ userId });
-
-//   //   if (currentUserInfo.errorMessage){
-//   //     throw new Error(currentUserInfo.errorMessage);
-//   // }
-
-//   const { articleId, filePath } = req.body;
-
-//   const newArticleFile = await ArticleService.addFileInfo({ articleId, filePath });
-
-//   if (newArticleFile){
-//     throw new Error(newArticleFile.errorMessage);
-//   }
-//   res.status(200).json(newArticleFile);
-// } catch (error){
-//   next(error);
-// }
-// });
-
 
 /**
  * @swagger
@@ -234,7 +202,7 @@ articleRouter.put("/article/:id", loginRequired, async function (req, res, next)
   try{
       const articleId = req.params.id;
 
-      // loginId는 수정 불가능
+
       const title = req.body.title ?? null; // ??는 왼쪽 피연산자가 null 또는 undefined일 때 오른쪽 피연산자 반환 그렇지 않으면 왼쪽 피연산자 반환
       const content = req.body.content ?? null;
 
@@ -286,32 +254,6 @@ articleRouter.delete("/article/:id", loginRequired, async function (req, res, ne
   } catch (error) {
     next(error);
   }
-});
-
-
-//pagination
-articleRouter.get('/', async function(req, res){ // 1
-  var page = Math.max(1, parseInt(req.query.page));   // 2
-  var limit = Math.max(1, parseInt(req.query.limit)); // 2
-  page = !isNaN(page)?page:1;                         // 3
-  limit = !isNaN(limit)?limit:10;                     // 3
-
-  var skip = (page-1)*limit; // 4
-  var count = await Post.countDocuments({}); // 5
-  var maxPage = Math.ceil(count/limit); // 6
-  var posts = await Post.find({}) // 7
-    .populate('author')
-    .sort('-createdAt')
-    .skip(skip)   // 8
-    .limit(limit) // 8
-    .exec();
-
-  res.render('posts/index', {
-    posts:posts,
-    currentPage:page, // 9
-    maxPage:maxPage,  // 9
-    limit:limit       // 9
-  });
 });
 
 

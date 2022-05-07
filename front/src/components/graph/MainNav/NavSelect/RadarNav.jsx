@@ -102,7 +102,7 @@ const RadarNav = () => {
       </div>
 
       <div className='Graph'>
-        <Radar data={data}></Radar>
+        {data && <Radar data={data}></Radar>}
         {/* <SampleR></SampleR> */}
       </div>
     </div>
