@@ -84,6 +84,7 @@
   border-radius: 1mm;
   overflow: hidden;
   background-color: white;
+  object-fit: cover;
 }
 
 .articleContent {
