@@ -24,6 +24,35 @@ const RadarNav = () => {
       setCategories(res.data)
     })
   }, [])
+  useEffect(() =>{
+      // const params = {category :'desserts'}; //categpry=카테고리명
+  
+    if(selectedCategroy){
+      axios.get(`http://localhost:5001/food/foodname?category=${selectedCategroy}`)
+      .then((res) => {
+        console.log('2번째 사이드바_예제 디저트')
+        console.log(res.data)
+        setFoods(res.data)
+        setSelectedFood('')
+      })
+    }
+  }, [selectedCategroy])
+
+  useEffect(() => {
+    if(selectedFood){
+      // const params = {food :'cocoa'}; //food=음식이름
+      axios.get(`http://localhost:5001/nutrients?food=${selectedFood}`)
+      .then((res) => {
+        // console.log(res.data)
+        console.log('axios Test')
+        console.log(res.data)
+        // console.log(res.data)
+        setData(res.data)
+      });
+    }
+  },[selectedFood])
+
+
   
   // useEffect(() => {
   //   if(selectedCategroy){(res)=>{
@@ -69,7 +98,7 @@ const RadarNav = () => {
     <div className='content'>
       <div className='Aside'>
         {categories && <Sidebar data = {categories} setData={setSelectedCategory}></Sidebar>}
-        {foods && <Sidebar data = {foods} setData={setSelectedFood}></Sidebar>}
+        {foods && <Sidebar data = {foods.map(food => {return food.foodName})} setData={setSelectedFood}></Sidebar>}
       </div>
 
       <div className='Graph'>
