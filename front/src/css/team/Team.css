@@ -52,6 +52,7 @@
   #teamInfo ul li div img {
     width: 30px;
     height: 30px;
+    margin-right: 12px;
   }
   #teamInfo ul li .github img {
     width: 25px;

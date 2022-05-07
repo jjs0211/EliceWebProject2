@@ -65,6 +65,7 @@ height: 31.25rem;
   margin-right: 1.875rem;
   border-style: hidden;
   border-radius: 3mm;
+  object-fit: cover;
   
 }
 
@@ -74,6 +75,7 @@ height: 31.25rem;
   margin-right: 1.875rem;
   border-style: hidden;
   border-radius: 3mm;
+  object-fit: cover;
 
 }
 
@@ -83,6 +85,7 @@ height: 31.25rem;
   margin-right: 1.875rem;
   border-style: hidden;
   border-radius: 3mm;
+  object-fit: cover;
 }
 
 .linkButton {

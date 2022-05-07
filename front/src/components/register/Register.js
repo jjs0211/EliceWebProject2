@@ -254,8 +254,8 @@ return (
 
       <div className="phoneNumberContainer">
         <div className="phoneNumberTitle">휴대전화</div>
-        <input className='phoneNumberBox' type='number'onBlur={(e) => setPhoneNumber(e.target.value)}></input>
-        <div className='phoneNumberChecker'>{phoneNumberDefaultValid ? '' : !isPhoneNumberValid && '휴대폰 번호를 다시 확인해주세요' }</div>
+        <input className='phoneNumberBox' type='number'onChange={(e) => setPhoneNumber(e.target.value)}></input>
+        <div className='phoneNumberChecker'>{phoneNumberDefaultValid ? '' : !isPhoneNumberValid && '휴대폰 번호를 11자리 숫자로만 입력해주세요.' }</div>
       </div>
 
       <button className="registerButton" 

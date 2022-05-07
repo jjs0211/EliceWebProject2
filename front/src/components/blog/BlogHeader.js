@@ -20,7 +20,7 @@ function BlogHeader() {
       // dispatch 함수를 이용해 로그아웃함. 
       dispatch({type: "LOGOUT"})
       // 블로그 페이지로 돌아감. 
-      navigate('/blog');
+      navigate('/main');
     }
 
   return (

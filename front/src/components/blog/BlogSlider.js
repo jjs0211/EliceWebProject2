@@ -13,7 +13,6 @@ const BlogSlider = ({topviewedArticleList}) => {
     <Swiper
       spaceBetween={100}
       slidesPerView={2}
-      centeredSlides
       onSwiper={swiper => console.log(swiper)}
     >
       {topviewedArticleList && topviewedArticleList.map((article) => (
