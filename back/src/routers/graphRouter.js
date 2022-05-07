@@ -261,24 +261,27 @@ graphRouter.get("/food-rank", errorMiddleware, async (req, res, next) => {
  *       200:
  *         description: success
  */
-graphRouter.get("/nutrients-comparison", errorMiddleware, async (req, res, next) => {
-  try {
-    const { x, y } = req.query;
-    const nutrientsComparison = await graphService.getNutrientsComparison({ x, y });
+graphRouter.get(
+  "/nutrients-comparison",
+  errorMiddleware,
+  async (req, res, next) => {
+    try {
+      const { x, y } = req.query;
+      const nutrientsComparison = await graphService.getNutrientsComparison({
+        x,
+        y,
+      });
 
-    // 조회된 데이터가 없으면 에러 반환
-    if (nutrientsComparison.error) {
-      throw new Error(nutrientsComparison.errorMessage);
+      // 조회된 데이터가 없으면 에러 반환
+      if (nutrientsComparison.error) {
+        throw new Error(nutrientsComparison.errorMessage);
+      }
+      // 조회된 데이터가 있으면 결과와 함께 반환
+      res.status(200).json(nutrientsComparison);
+    } catch (error) {
+      next(error);
     }
-    // 조회된 데이터가 있으면 결과와 함께 반환
-    res.status(200).json(nutrientsComparison);
-  } catch (error) {
-    next(error);
   }
-});
-
-
-
-
+);
 
 export { graphRouter };

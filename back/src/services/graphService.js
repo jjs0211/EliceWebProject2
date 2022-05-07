@@ -38,19 +38,17 @@ class graphService {
     const currentCategory =
       currentCategoryOriginal[0].toUpperCase() +
       currentCategoryOriginal.slice(1);
-
     const foodsRankList = await Food.findFoodsRank({
       currentCategory,
       currentNutrient,
     });
-
+    // 모델에서 가져온 객체에 'grams당 영양성분' 요소 추가
     const foodsList = foodsRankList.map((foods) => {
       let perGrams =
         Math.round((foods[currentNutrient] / foods["grams"]) * 100) / 100; // 소수점 둘째자리까지 반올림
       let foodPerGrams = { perGrams: perGrams };
-      return Object.assign(foods["_doc"], foodPerGrams); // 모델에서 가져온 객체에 'grams당 영양성분' 요소 추가
+      return Object.assign(foods["_doc"], foodPerGrams);
     });
-
     if (!foodsList) {
       const errorMessage = "데이터를 찾을 수 없습니다. 다시 확인해주세요.";
       return { errorMessage };
@@ -61,9 +59,7 @@ class graphService {
 
   // 버블 차트 -- 모든 음식들의 두 영양성분 상대적 비교
   static async getNutrientsComparison({ x, y }) {
-
     const nutrientskList = await Food.findByNutrients({ x, y });
-
     if (!nutrientskList) {
       const errorMessage = "데이터를 찾을 수 없습니다. 다시 확인해주세요.";
       return { errorMessage };
@@ -72,17 +68,6 @@ class graphService {
     return nutrientskList;
   }
 
-  // 그래프 static 이미지
-  static async getGraph({ graphId }) {
-    // 그래프 ID 로 조회
-    const graph = await Graph.findById({ graphId });
-    if (!graph) {
-      const errorMessage = "해당 그래프를 찾을 수 없습니다. 다시 확인해주세요.";
-      return { errorMessage };
-    }
-    graph.errorMessage = null;
-    return graph;
-  }
 }
 
 export { graphService };
