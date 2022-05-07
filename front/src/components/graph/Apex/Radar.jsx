@@ -18,12 +18,16 @@ import axios from "axios";
 const Radar = (state) =>{
 
   // constructor(props) 
-  
+    let obj = state.data[0]
+    console.log(obj)
+    console.log('objojbobj')
   //   super(props);
     console.log('레이다 그래프!!!11')
-    console.log(state.data)
+    console.log(obj.foodName)
         console.log('레이다 그래프!!!22')
-
+    let temp = [obj.carbs, obj.fiber, obj.fat, obj.protein, obj.satFat]
+    console.log(temp)
+    console.log('TTEMPPPPPP')
     state = {
       options: {
       xaxis: {
@@ -40,14 +44,16 @@ const Radar = (state) =>{
 
       },
       series: [
-    {
-      name: "IceCream",
-      data: [45, 52, 38, 24, 33]
-    },
-    {
-      name: "Pie",
-      data: [26, 21, 20, 6, 8]
-        },
+    // {
+    //   name: "IceCream",
+    //   data: [45, 52, 38, 24, 33]
+    // },
+    // {
+    //   name: "Pie",
+    //   data: [26, 21, 20, 6, 8]
+    //     },
+    { name: obj.foodKorName,
+      data: temp}
     
   ],
       labels: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
