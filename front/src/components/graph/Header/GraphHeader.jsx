@@ -33,7 +33,7 @@ function GraphHeader() {
           <div className='naviContentG'>
             {!isLogin && <button onClick={() => navigate('/register')}>회원가입</button>}
             {!isLogin && <button onClick={() => navigate('/login')}>로그인</button>} 
-            {isLogin && <button>마이페이지</button>}
+            {isLogin && <button onClick={() => navigate('/blogPost')}>글작성</button>}
             {isLogin && <button onClick={logout}>로그아웃</button>}
             <button onClick={() => navigate('/blog')}>블로그</button> 
             <button onClick={() => navigate('/team')}>팀페이지</button>
