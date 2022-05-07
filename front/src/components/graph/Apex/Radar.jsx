@@ -19,15 +19,9 @@ const Radar = (state) =>{
 
   // constructor(props) 
     let obj = state.data[0]
-    console.log(obj)
-    console.log('objojbobj')
   //   super(props);
-    console.log('레이다 그래프!!!11')
-    console.log(obj.foodName)
-        console.log('레이다 그래프!!!22')
     let temp = [obj.carbs, obj.fiber, obj.fat, obj.protein, obj.satFat]
-    console.log(temp)
-    console.log('TTEMPPPPPP')
+
     state = {
       options: {
       xaxis: {
