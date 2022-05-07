@@ -60,7 +60,7 @@ const MainNav2 = () => {
     <div className='MainNav' >
       <div className='MainNavButton'>
         <div className='MainNavGlass1'>
-          <Guide title="Guide_" onChangeMode={() => {
+          <Guide title="Start_" onChangeMode={() => {
             setMode((mode) => 'GUIDE');
           }}></Guide>
           <Donut title="Donut_" onChangeMode={() => {
