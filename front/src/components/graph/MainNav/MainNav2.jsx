@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import MainDash from '../MainDash/MainDash'
-import Sidebar from '../Sidebar/Sidebar'
 import BarNav from './NavSelect/BarNav';
 import DonutNav from './NavSelect/DonutNav';
 import RadarNav from './NavSelect/RadarNav';
-import { useEffect } from 'react';
 import BubbleNav from './NavSelect/BubbleNav';
 import GuideNav from './NavSelect/GuideNav';
 import './MainNav2.css'
@@ -56,16 +53,6 @@ const Bubble = (props) => {
 /////////////////////////////
 const MainNav2 = () => {
   const [mode, setMode] = useState('GUIDE');
-  // const [id, setId] = useState(null);
-  // const [c1, setC1] = useState('firstC');
-  // const [c2, setC2] = useState('secondC');
-  // useEffect(() => {
-
-  // },)
-  // const navigate = [
-  //   { id: 1, title: {c1} , chart: {c2}},
-  //   { id: 2, title: 'category1_2', chart: 'radar'}
-  // ]
 
   let content = null;
   if (mode === 'GUIDE') {

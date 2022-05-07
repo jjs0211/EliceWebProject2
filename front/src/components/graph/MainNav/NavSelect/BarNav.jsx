@@ -36,23 +36,6 @@ const BarNav = () => {
     }
   }, [selectedCategory])
 
-
-  // useEffect(() => {
-  //   if(selectedNutrient){
-  //     // const rank1 = {category : };
-  //     // const rank2 = {nutrients: };
-  //     axios.get(`http://localhost:5001/food-rank?category=${selectedCategory}&nutrients=${selectedNutrient}`)
-  //     .then((res) => {
-  //       // console.log(res.data)
-  //       console.log('axios Test')
-  //       console.log(res.data)
-  //       // console.log(res.data)
-  //       setData(res.data)
-  //     });
-  //   }
-  // },[selectedNutrient])
-
-
   useEffect(() => {
     if(selectedCategory && selectedNutrient){
       axios.get(`http://localhost:5001/food-rank`,{
@@ -70,24 +53,6 @@ const BarNav = () => {
           });
     }
   }, [selectedNutrient])
-
-
-  // useEffect(() => {
-  //   Api.get("food/nutrients")
-  //   .then((res) => {
-  //     // console.log('바차트누름')
-  //     setNutrients(res.data)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   if(selectedNutrient){(res)=>{
-  //     setSelectedNutrient(res.data)
-  //     console.log('되고있어!!!!')}
-  //   }
-  // }, [selectedNutrient])
-
-
 
   
   return (
