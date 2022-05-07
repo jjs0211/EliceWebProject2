@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import BarNav from './NavSelect/BarNav';
 import DonutNav from './NavSelect/DonutNav';
 import RadarNav from './NavSelect/RadarNav';
-import BubbleNav from './NavSelect/BubbleNav';
 import GuideNav from './NavSelect/GuideNav';
 import './MainNav2.css'
 
@@ -41,14 +40,6 @@ const Bar = (props) => {
 </div>
 }
 
-const Bubble = (props) => {
-  return <div>
-  <button className='BubbleButton'><a href="/" onClick={function (event) {
-    event.preventDefault();
-    props.onChangeMode();
-  }}>{props.title}</a></button>
-</div>
-}
 
 /////////////////////////////
 const MainNav2 = () => {
@@ -63,8 +54,6 @@ const MainNav2 = () => {
     content = <RadarNav></RadarNav>
   }else if (mode === 'BAR') {
     content = <BarNav></BarNav>
-  }else if (mode === 'BUBBLE') {
-    content = <BubbleNav></BubbleNav>
   }
 
   return (
@@ -83,9 +72,6 @@ const MainNav2 = () => {
           <Bar title="BarB" onChangeMode={() => {
             setMode((mode) => 'BAR');
           }}></Bar>
-          <Bubble title="BubbleB" onChangeMode={() => {
-            setMode((mode) => 'BUBBLE');
-          }}></Bubble>
         </div>
       </div>
 
