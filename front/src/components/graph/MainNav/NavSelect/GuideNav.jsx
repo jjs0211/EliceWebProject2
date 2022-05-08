@@ -7,12 +7,15 @@ const GuideNav = () => {
 
   return (
     <div className='content'>
-      <div className='TopSpace'>💜</div>
-      <Sample1 />
-      <div className='MidSpace'>💚</div>
-      <div>
-      <Bubble></Bubble>
+      <div className='contentIn'>
+        <div className='TopSpace'>💜</div>
+        <Sample1 />
+        <div className='MidSpace'>💚</div>
+        <div>
+        <Bubble></Bubble>
+        </div>
       </div>
+
     </div>
   )
 }

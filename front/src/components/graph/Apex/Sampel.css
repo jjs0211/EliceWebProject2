@@ -2,7 +2,7 @@
 
 /* BTN Style */
 .appCH {
-  padding:0px 50px 10px 50px;
+  padding:0px 50px 10px 50px;  
 }
 
 .BTN {
@@ -16,7 +16,9 @@
   color: rgb(255,
       93,
       110);
+    cursor: pointer;
 }
+
 
 .BTN:focus {
   outline: none;
@@ -104,6 +106,7 @@ and add background color*/
 
 .MiddleGN {
   padding: 0 10px 0 530px;
+    cursor: pointer;
 }
 
 .rowClick {
