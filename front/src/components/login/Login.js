@@ -73,6 +73,7 @@ async function handleSubmit() {
         Navigate("/blog", {replace: true});
       } catch (err) {
         console.log("로그인에 실패하였습니다.\n", err);
+        setAlert('아이디 또는 비밀번호를 잘못 입력했습니다')
       }
     }
   }

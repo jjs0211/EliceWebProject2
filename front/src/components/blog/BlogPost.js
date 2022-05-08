@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import ReactQuill from 'react-quill'
 import '../../../node_modules/react-quill/dist/quill.snow.css'
 import '../../css/blog/BlogPost.css'
@@ -17,6 +18,11 @@ function BlogPost() {
 
   const [body, setBody] = useState('')
   
+
+
+  // UseNavigate 함수
+
+  const navigate = useNavigate()
 
 
   // Quill에 작성한 글자 정보. body라는 스테이트에 저장.
@@ -69,6 +75,8 @@ function BlogPost() {
 
     const res = await Api.post("article/create", data)
     console.log(res)
+    navigate("/blog")
+
   }
  
 

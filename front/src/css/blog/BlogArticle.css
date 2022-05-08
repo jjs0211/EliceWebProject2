@@ -5,21 +5,18 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
 
-
 .articleContainer {
-  width: 800px;
-  height: 1160px;
-  background-color: white;
+  width: 50rem;
+  height: 72.5rem;  background-color: white;
   border: solid;
   border-color: #E8EBEE;
   border-width: thin;
   border-radius: 3mm;
   overflow: hidden;
-  box-shadow: 0.3px 0.3px #E8EBEE;
+  box-shadow: 0.01875rem 0.01875rem #E8EBEE;
 }
 
 .aritcleTitleBox {
@@ -32,35 +29,38 @@
   border-bottom: solid;
   border-color: #E8EBEE;
   border-width: thin;
+  overflow: hidden;
   
 }
 
 .articleTitle {
   width: 42%;
   height: 100%;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 2.4;
+  overflow: hidden;
 
 }
 
 .articleDate {
   width: 26%;
   height: 100%;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 3.2;
   text-align: right;
-
+  overflow: hidden;
 }
 
 .articleAuthor {
   width: 26%;
   height: 100%;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 3.2;
   text-align: right;
+  overflow: hidden;
 }
 
 
@@ -84,6 +84,7 @@
   border-radius: 1mm;
   overflow: hidden;
   background-color: white;
+  object-fit: cover;
 }
 
 .articleContent {
@@ -92,22 +93,28 @@
   border-bottom: solid;
   border-color: #E8EBEE;
   border-width: thin;
-  padding: 10px;
+  padding: 0.625rem;
   overflow: auto;
+
 }
 
 .articleRecommand { 
   width: 100%;
-  height: 5.7%;
+  height: 6%;
+  padding: 0;
   text-align: center;
 }
 
-.articleRecommand button {
-  display: inline-block;
-  width: 50px;
-  height: 30px;
-  margin: 10px;
-  
+.blogNavigaion {
+  width: 100%;
+  height: 100%;
+  background-color: #19C764;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border: hidden;
+  margin: 0;
+  cursor: pointer;
 }
 
 

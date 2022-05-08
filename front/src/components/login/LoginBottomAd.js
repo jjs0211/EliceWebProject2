@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate, useParams } from "react-router-dom";
 import '../../css/login/LoginBottomAd.css'
 import bottomAd from '../../images/login/loginBottomAd/bottomAd.jpg'
 

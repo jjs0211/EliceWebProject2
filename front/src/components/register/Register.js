@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import {useState} from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as Api from '../../api'
 import '../../css/register/Register.css'
 
@@ -188,10 +188,11 @@ const registerationValid = (isIdValid&&isPasswordValid&&isconfirmPasswordValid&&
 /// -------------------------------------------------------------------//
 // ----------------- 여기부터 컴퍼넌트 ------------------//
 
-  return (
-    <div className='RegisterContainer'>
+return (
+  <div className="registerWrapper">
+    <div className='registerContainer'>
       <div className='headerContainer'>
-        <div className='headerTitle'>Foodlog</div>
+        <div className='headerTitle' onClick={() => navigate('/blog')}>Foodlog</div>
       </div>
       
       <div className="idContainer">
@@ -253,15 +254,15 @@ const registerationValid = (isIdValid&&isPasswordValid&&isconfirmPasswordValid&&
 
       <div className="phoneNumberContainer">
         <div className="phoneNumberTitle">휴대전화</div>
-        <input className='phoneNumberBox' type='number'onBlur={(e) => setPhoneNumber(e.target.value)}></input>
-        <div className='phoneNumberChecker'>{phoneNumberDefaultValid ? '' : !isPhoneNumberValid && '휴대폰 번호를 다시 확인해주세요' }</div>
+        <input className='phoneNumberBox' type='number'onChange={(e) => setPhoneNumber(e.target.value)}></input>
+        <div className='phoneNumberChecker'>{phoneNumberDefaultValid ? '' : !isPhoneNumberValid && '휴대폰 번호를 11자리 숫자로만 입력해주세요.' }</div>
       </div>
 
       <button className="registerButton" 
         onClick={handleSubmit}
       disabled={!registerationValid}>가입하기</button>
     </div>
-
+  </div>
 
   )
 
