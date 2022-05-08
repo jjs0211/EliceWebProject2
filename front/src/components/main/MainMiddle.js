@@ -1,9 +1,12 @@
 import React from "react";
-import '../../css/main/MainMiddle.css'
+import '../../css/main/MainMiddle.css' 
+import FoodImg from '../../images/main/MainMiddle/foodImg.jpg'
 import { useNavigate, useParams } from "react-router-dom";
+
 
 function MainMiddle () {
   return (
+  <div className='mainMiddleContainer'>  
     <div className="MainMiddle">
       <div className="middleBox1">
         <div className="middleBox1-1">
@@ -18,10 +21,11 @@ function MainMiddle () {
       </div>
       <div className="middleBox2">
         <div className="middleBox2-1">
-          <img className="imageBox" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTA4MTNfMTk1%2FMDAxNTY1NjgzNDcyNTA5.NxGb8dAQSVuZgafN5x3DK1JBw4bEmvQagMuK0dwipakg.PyJ05gmosfBBeOlfD1mSreZHwKuO1UYAcckIcHI9GzUg.JPEG.boeun0917%2FF6753A78-BF33-4D25-8C2A-5CEA950F4772.jpg&type=sc960_832" alt="비상식량" />
+          <img className="imageBox" src={FoodImg} alt="푸드피라미드" />
         </div>
       </div>
     </div>
+  </div>
   )
 }
 
