@@ -1,17 +1,42 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
-class BarLine extends Component {
-  constructor(props) {
-    super(props);
+const BarLine = (state) => {
+  // constructor(props) {
+    // super(props);
+    console.log(state.data)
+    // console.log(obj)
+    let obj = state.data
+    let temp = []
+        console.log('objobjJJ!!!!111')
+    console.log(obj)
+    
+    let sortObj = obj.sort((a,b) => a.perGrams - b.perGrams);
+    console.log(sortObj) 
 
-    this.state = {
+    console.log('정렬!!')
+    // console.log(sortResult)
+        console.log('objobjJJ!!!!222')
+
+    // 탬핑
+    let tempName = []
+    for (var i = obj.length-1; i> obj.length-7; i--){
+      tempName.push(obj[i].foodKorName)
+    }
+    console.log(tempName)
+
+    let tempperGrams = []
+    for (var i = obj.length-1; i> obj.length-7; i--){
+      tempperGrams.push(obj[i].perGrams)
+    }
+    console.log(tempperGrams)    
+    state = {
       options: {
         chart: {
           id: "basic-bar"
         },
         xaxis: {
-          categories: ['비스킷', '크래커', '채썬밀비스킷', '와플', '초콜릿크림','스폰지케이크','체리파이','타파오카크림푸딩']
+          categories: tempName
         },
           plotOptions: {
          bar: {
@@ -22,29 +47,26 @@ class BarLine extends Component {
       series: [
         {
           name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
+          data: tempperGrams
         }
       ],
         chart: {
     events: {
       zoomed: function(chartContext, { xaxis, yaxis }) {
-      }
-    }
-  }
-    };
+      }}}
   }
   // series : y축
   // 줌 이벤트 바 차트의 경우 안됨
 
 // type bar 와 line 으로 변경 테스트 가능
-  render() {
+
     return (
       <div className="barline">
         <div className="row">
           <div className="mixed-chart">
             <Chart
-              options={this.state.options}
-              series={this.state.series}
+              options={state.options}
+              series={state.series}
               type="bar" 
               width="500"
             />
@@ -52,7 +74,6 @@ class BarLine extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default BarLine;

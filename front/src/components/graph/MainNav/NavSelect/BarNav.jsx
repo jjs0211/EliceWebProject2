@@ -8,7 +8,7 @@ import qs from 'qs';
 
 const BarNav = () => {
   const [categories, setCategories] = useState("")
-  const [selectedCategroy, setSelectedCategory] = useState("")  // 실제 선택한거
+  const [selectedCategory, setSelectedCategory] = useState("")  // 실제 선택한거
   const [nutrients, setNutrients] = useState("")
   const [selectedNutrient, setSelectedNutrient] = useState("")
   const [data, setData] = useState("")
@@ -23,56 +23,47 @@ const BarNav = () => {
     })
   }, [])
 
-  // useEffect(() => {
-  //   if(selectedCategroy){(res)=>{
-  //     setSelectedCategory(res.data)
-  //     console.log('되고있어!!!!')}
-  //   }
-  // }, [selectedCategroy])
+  useEffect(() =>{
+      // const params = {category :'desserts'}; //categpry=카테고리명
+    if(selectedCategory){
+    Api.get("food/nutrients")
+      .then((res) => {
+        console.log('2번째 사이드바_예제 디저트')
+        console.log(res.data)
+        setNutrients(res.data)
+        setSelectedNutrient('')
+      })
+    }
+  }, [selectedCategory])
 
-  // useEffect(() => {
-  //   Api.get("food/nutrients")
-  //   .then((res) => {
-  //     // console.log('바차트누름')
-  //     setNutrients(res.data)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   if(selectedNutrient){(res)=>{
-  //     setSelectedNutrient(res.data)
-  //     console.log('되고있어!!!!')}
-  //   }
-  // }, [selectedNutrient])
-
-
-  // useEffect(() => {
-  //   if(selectedCategroy && selectedNutrient){
-  //     axios.get(`http://localhost:5001/food-rank`,{
-  //           params: {
-  //             category: 'fruits', //rank1
-  //             nutrients: 'fat'     // rank2
-  //           }
-  //         })
-  //         .then((res) => {
-  //           // console.log(res.data)
-  //           console.log('axios Test')
-  //           console.log(res.data)
-  //           // console.log(res.data)
-  //         });
-  //   }
-  // }, [])
+  useEffect(() => {
+    if(selectedCategory && selectedNutrient){
+      axios.get(`http://localhost:5001/food-rank`,{
+            params: {
+              category: selectedCategory, //rank1
+              nutrients: selectedNutrient    // rank2
+            }
+          })
+          .then((res) => {
+            // console.log(res.data)
+            console.log('axios Test')
+            console.log(res.data)
+            setData(res.data)
+            // console.log(res.data)
+          });
+    }
+  }, [selectedNutrient])
 
   
   return (
     <div className='content'>
       <div className='Aside'>
         {categories && <Sidebar data={categories} setData={setSelectedCategory}></Sidebar>}
-        {nutrients && <Sidebar data={nutrients} setData={setSelectedNutrient}></Sidebar>}
+        {nutrients && <Sidebar data={nutrients.map(nutrient => {return nutrient})} setData={setSelectedNutrient}></Sidebar>}
       </div>
 
       <div className="Graph">
-        <BarLine data={data}></BarLine>
+        {data && <BarLine data={data}></BarLine>}
       </div>
     </div>
   )

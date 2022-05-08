@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
 
-class Donut extends Component {
+const Donut = (state) => {
 
-  constructor(props) {
-    super(props);
+    let obj = state.data[0];
+    let temp = [obj.carbs, obj.fiber, obj.fat, obj.protein, obj.satFat]
 
-    this.state = {
+    state = {
       options: {
       labels: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
-
         plotOptions: {
           pie: {
             donut: {
@@ -30,20 +29,16 @@ class Donut extends Component {
           }
         }
       },
-      series: [44, 55, 41, 17, 15],
-      labels: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat']
+      series: temp,
+      labels: ['Carbs', 'Fiber', 'Fat', 'Protein', 'SatFat'],
 
-    }
   }
-  // polarArea or donut
-  render() {
 
     return (
       <div className="donut">
-        <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
+        <Chart options={state.options} series={state.series} type="donut" width="380" />
       </div>
     );
-  }
 }
 
 export default Donut;

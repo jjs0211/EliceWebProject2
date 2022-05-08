@@ -1,18 +1,5 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'
-import axios from "axios";
-
-
-// var url = 'http://localhost:5001/nutrients?food=rice';
-// axios({
-//   method: 'GET',
-//   url: url,
-// }).then(function (response) {
-//   Chart.updateSeries([{
-//     name: 'Rice!!',
-//     data: response.data
-//   }])
-// })
 
 
 const Radar = (state) =>{

@@ -10,19 +10,22 @@ class Food {
 
   // 음식이름(영&한) 전체 조회
   static async findFoodNames({ currentCategory }) {
+    const fieldCondition =  { category: currentCategory }; // 필드 조건
+    const fieldProjection =  { _id: 0, foodName: 1, foodKorName: 1 } ; // foodName, foodKorName 만 표시 
     const foodNamesList = await FoodModel.find(
-      { category: currentCategory }, // 카테고리 조건
-      { _id: 0, foodName: 1, foodKorName: 1 } // foodName, foodKorName 만 표시 (1)
+      fieldCondition, 
+      fieldProjection,
     );
     return foodNamesList;
   }
 
   // 영양성분 전체 조회
   static async findNutrientNames() {
+    const fieldProjection =  { _id: 0, nutrients: 1 } ; // nutrients만 표시
     // cf. Graph Model에 영양성분 값만 따로 저장해둠
     const nutrientsNamesList = await GraphModel.findOne(
       {},
-      { _id: 0, nutrients: 1 }
+      fieldProjection,
     );
     return nutrientsNamesList;
   }
@@ -30,7 +33,7 @@ class Food {
   // 카테고리의 평균 영양성분 조회
   static async findByCategory({ currentCategory }) {
     const nutrientsAvgCategory = await FoodModel.aggregate([
-      { $match: { category: currentCategory } }, // 카테고리 조건
+      { $match: { category: currentCategory } }, // 필드 조건
       {
         // 평균으로 영양성분 집계
         $group: {
@@ -58,28 +61,46 @@ class Food {
 
   // 음식의 영양성분 조회
   static async findByFood({ currentFood }) {
+    const fieldCondition =  { foodName: currentFood }; // 필드 조건
+    const fieldProjection =  { _id: 0, foodId: 0, category: 0, measure: 0 } ; // 필요 없는 필드는 표시하지 않음
     const nutrientsFood = await FoodModel.find(
-      { foodName: currentFood },
-      { _id: 0, foodId: 0, category: 0, measure: 0 }
+      fieldCondition,
+      fieldProjection
     );
     return nutrientsFood;
   }
 
   // 카테고리 음식의 영양성분 순위
   static async findFoodsRank({ currentCategory, currentNutrient }) {
-    const fieldProjection = {_id: 0, foodName: 1, foodKorName: 1, grams: 1, [currentNutrient]: 1};
+    const fieldCondition =  { category: currentCategory }; // 필드 조건
+    const fieldProjection = {
+      _id: 0,
+      foodName: 1,
+      foodKorName: 1,
+      grams: 1,
+      [currentNutrient]: 1,
+    };
     const foodRank = await FoodModel.find(
-      { category: currentCategory },
+      fieldCondition,
       fieldProjection
     ).sort({ [currentNutrient]: -1 });
     return foodRank;
   }
 
-  // 데이터 전체 조회
-  static async findAll() {
-    const foodsList = await FoodModel.find({});
-    return foodsList;
+  // 두 영양성분 비교
+  static async findByNutrients({ x, y }) {
+    const fieldProjection = {
+      _id: 0,
+      foodName: 1,
+      foodKorName: 1,
+      calories: 1,
+      [x]: 1,
+      [y]: 1,
+    };
+    const nturientsResult = await FoodModel.find({}, fieldProjection);
+    return nturientsResult;
   }
+
 }
 
 export { Food };

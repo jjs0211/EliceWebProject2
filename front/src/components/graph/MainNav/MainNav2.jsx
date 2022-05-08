@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import MainDash from '../MainDash/MainDash'
-import Sidebar from '../Sidebar/Sidebar'
 import BarNav from './NavSelect/BarNav';
 import DonutNav from './NavSelect/DonutNav';
 import RadarNav from './NavSelect/RadarNav';
-import { useEffect } from 'react';
-import BubbleNav from './NavSelect/BubbleNav';
 import GuideNav from './NavSelect/GuideNav';
 import './MainNav2.css'
 
@@ -44,28 +40,10 @@ const Bar = (props) => {
 </div>
 }
 
-const Bubble = (props) => {
-  return <div>
-  <button className='BubbleButton'><a href="/" onClick={function (event) {
-    event.preventDefault();
-    props.onChangeMode();
-  }}>{props.title}</a></button>
-</div>
-}
 
 /////////////////////////////
 const MainNav2 = () => {
   const [mode, setMode] = useState('GUIDE');
-  // const [id, setId] = useState(null);
-  // const [c1, setC1] = useState('firstC');
-  // const [c2, setC2] = useState('secondC');
-  // useEffect(() => {
-
-  // },)
-  // const navigate = [
-  //   { id: 1, title: {c1} , chart: {c2}},
-  //   { id: 2, title: 'category1_2', chart: 'radar'}
-  // ]
 
   let content = null;
   if (mode === 'GUIDE') {
@@ -76,8 +54,6 @@ const MainNav2 = () => {
     content = <RadarNav></RadarNav>
   }else if (mode === 'BAR') {
     content = <BarNav></BarNav>
-  }else if (mode === 'BUBBLE') {
-    content = <BubbleNav></BubbleNav>
   }
 
   return (
@@ -96,9 +72,6 @@ const MainNav2 = () => {
           <Bar title="BarB" onChangeMode={() => {
             setMode((mode) => 'BAR');
           }}></Bar>
-          <Bubble title="BubbleB" onChangeMode={() => {
-            setMode((mode) => 'BUBBLE');
-          }}></Bubble>
         </div>
       </div>
 
